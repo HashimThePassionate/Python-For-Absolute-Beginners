@@ -26,8 +26,7 @@ A piece of text that is written in multiple lines is known as multiple lines str
 There are two ways to create multiline strings:
 '''
 #b)1.1 Adding black slash at the end of each line.
-text1 = ' hello\   
-ser '    
+text1 = ' hello\  user '    
 print(text1)
 
 #b)1.2 Using triple quotation marks:-

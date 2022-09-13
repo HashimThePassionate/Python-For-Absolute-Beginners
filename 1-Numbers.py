@@ -3,7 +3,7 @@
 '''
 We can use the interpreter to take an input and return an output!
 
-Arithmetic Opperators:
+Arithmetic Operators:
 We have a whole bunch of opperators at our disposal
 + Addition
 - Subtraction
