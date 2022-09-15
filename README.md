@@ -10,6 +10,11 @@
 #Codeacademy
 <a href="https://www.codecademy.com/catalog/language/python" target="_blank">here</a>
 
+#Images
+![Continue Statement Flowchart] (continue-statement-flowchart.png)
+![Break Statement Flowchart] (flowchart-break-statement.png)
+
+
 # Get your own copy of this repo
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
