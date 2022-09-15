@@ -10,8 +10,10 @@
 #Codeacademy
 <a href="https://www.codecademy.com/catalog/language/python" target="_blank">here</a>
 
-#Images
+Images
+<br>
 ![Continue Statement Flowchart] (continue-statement-flowchart.png)
+<br>
 ![Break Statement Flowchart] (flowchart-break-statement.png)
 
 
