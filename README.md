@@ -7,6 +7,8 @@
 git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 ```
 # More references Websites to Learn about Python<br>
+W3School:
+<a href="https://www.w3schools.com/python/" target="_blank">here</a><br>
 Javatpoint:
 <a href="https://www.javatpoint.com/python-tutorial" target="_blank">here</a><br>
 Realpython
