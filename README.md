@@ -18,9 +18,11 @@ Pythonguides
 Codeacademy
 <a href="https://www.codecademy.com/catalog/language/python" target="_blank">here</a><br>
 # Some Images which I used in Tutorial are:<br>
-![variableExample1](https://user-images.githubusercontent.com/89855559/190632530-5a87cbb4-b956-40ab-9948-fccc43dfdadc.png)<br><br>
-![variableExample2](https://user-images.githubusercontent.com/89855559/190632535-7ed65e7c-bc48-497a-ab45-289de3ff25ff.png)<br><br>
-![variableExample3](https://user-images.githubusercontent.com/89855559/190632537-26273c73-a313-4e8e-8c24-0d5e39f2460c.png)<br><br>
+<img src="https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png" width="400" height="200" />
+![variableExample1](https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png)<br><br>
+![VariableExample2](https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png)<br><br>
+![VariableExample3](https://user-images.githubusercontent.com/89855559/190901184-5d80c57c-439a-4d8e-87f5-264c2ad2b5c2.png)<br><br>
+![VariableExample4](https://user-images.githubusercontent.com/89855559/190901185-b3157050-e189-40d5-814f-3514d06a6848.png)<br><br>
 ![LoopsFlowChart](https://user-images.githubusercontent.com/89855559/190632773-1b1713a0-f1a5-46c3-9e34-91a8c7bf2958.png)<br><br><br>
 ![continue-statement-flowchart](https://user-images.githubusercontent.com/89855559/190384969-746d90a0-b717-4866-93dc-0f856bfb75e3.png)<br><br>
 ![flowchart-break-statement](https://user-images.githubusercontent.com/89855559/190384978-2bf3cd40-4865-495c-b92b-7ef5451adfb8.png)<br><br>
