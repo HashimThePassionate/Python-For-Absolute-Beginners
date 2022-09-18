@@ -6,14 +6,14 @@ across modulesand into the Python interpreter. This negates the
 need to keep repeating ourselves.
 DRY!....Don't repeat yourself
 '''
-import example
-example.add(4,5.5)
+import ModuleExample
+ModuleExample.add(4,5.5)
 
 #We can import a module by renaming it as follows:
 # import module by renaming it
 
-import example as m
-print("The addition is ",example.add(4,5.5))
+import ModuleExample as m
+print("The addition is ",m.add(4,5.5))
 
 #Python import statement
 # import statement example
