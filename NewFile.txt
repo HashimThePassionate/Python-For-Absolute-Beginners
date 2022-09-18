@@ -1,0 +1,3 @@
+Python is the modern day language. It makes things so simple. 
+It is the fastest-growing programing language
+Python has an easy syntax and user-friendly interaction.
