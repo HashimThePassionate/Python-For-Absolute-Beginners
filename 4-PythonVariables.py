@@ -5,11 +5,27 @@ A variable is created the moment you first assign a value to it.
 '''
 #Variable Assignment
 n = 300
+id(n)
 print(n)
 
 #Example
-a = b = c = 300
-print(a, b, c)
+m = n
+print("Value of m ",m)
+print("id of m ",id(m))
+print("Value of n ",n)
+print("id of n ",id(n))
+
+m=400
+print("Value of m ",m)
+print("id of m ",id(m))
+print("Value of n ",n)
+print("id of n ",id(n))
+
+n = "Hello"
+print("Value of m ",m)
+print("id of m ",id(m))
+print("Value of n ",n)
+print("id of n ",id(n))
 
 #TYPE of Variable
 type(a)
