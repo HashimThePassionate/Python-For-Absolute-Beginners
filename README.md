@@ -7,23 +7,19 @@
 git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 ```
 ## More references Websites to Learn about Python<br>
-<details>
-<summary>Learn Python</summary>
-<div>
-Learn python through [ W3School](https://www.w3schools.com/python/).
-Learn Python through Javatpoint:
-<a href="https://www.javatpoint.com/python-tutorial" target="_blank">Click here</a><br>
-Learn Python through Realpython
-<a href="https://realpython.com/" target="_blank">Click here</a><br>
-Learn Python through Pythonguides
-<a href="https://pythonguides.com/" target="_blank">Click here</a><br>
-Learn Python through Codeacademy
-<a href="https://www.codecademy.com/catalog/language/python" target="_blank">Click here</a><br>
-</div>
+<details><summary>LEARN PYTHON</summary>
+<p>
+  
+#### [W3School](https://www.w3schools.com/python/)
+#### [Javatpoint](https://www.w3schools.com/python/)
+#### [Realpython](https://www.w3schools.com/python/)
+#### [Pythonguides](https://www.w3schools.com/python/)
+#### [Codeacademy](https://www.w3schools.com/python/)
+  
+</p>
 </details>
 
 ## Some Images which I used are: 
-<br><br>
 ![variableExample1](https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png)<br><br>
 #
 ![VariableExample2](https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png)<br><br>
@@ -66,3 +62,9 @@ Learn Python through Codeacademy
 
 ###### Join Our Spartan Community:
 [Wp Spartan 300 Community](https://www.facebook.com/groups/wordpressspartans300).
+#
+###### Regards 
+```
+###### Muhammad Hashim
+```
+
