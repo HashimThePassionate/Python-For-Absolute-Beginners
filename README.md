@@ -1,4 +1,4 @@
-# Python-course-for-beginner
+> # Python-course-for-beginner
 # Get your own copy of this repo
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
@@ -7,6 +7,9 @@
 git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 ```
 # More references Websites to Learn about Python<br>
+<details>
+<summary>Learn Python</summary>
+<div>
 W3School:
 <a href="https://www.w3schools.com/python/" target="_blank">here</a><br>
 Javatpoint:
@@ -17,7 +20,10 @@ Pythonguides
 <a href="https://pythonguides.com/" target="_blank">here</a><br>
 Codeacademy
 <a href="https://www.codecademy.com/catalog/language/python" target="_blank">here</a><br>
-# Some Images which I used in Tutorial are:<br>
+</div>
+</details>
+
+# Some Images which I used in Tutorial are: <br><br>
 <img src="https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png" width="100%" height="auto" /><br><br>
 # 
 <img src="https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png" width="100%" height="auto" /><br><br>
