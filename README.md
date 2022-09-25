@@ -65,6 +65,6 @@ git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 #
 ###### Regards 
 ```
-###### Muhammad Hashim
+Muhammad Hashim
 ```
 
