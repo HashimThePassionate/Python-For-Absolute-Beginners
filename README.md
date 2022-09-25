@@ -1,5 +1,5 @@
 > # Python-course-for-beginner
-# Get your own copy of this repo
+## Get your own copy of this repository
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
 3. Use the following commands to clone this repo:
@@ -10,27 +10,28 @@ git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 <details>
 <summary>Learn Python</summary>
 <div>
-W3School:
-<a href="https://www.w3schools.com/python/" target="_blank">here</a><br>
-Javatpoint:
-<a href="https://www.javatpoint.com/python-tutorial" target="_blank">here</a><br>
-Realpython
-<a href="https://realpython.com/" target="_blank">here</a><br>
-Pythonguides
-<a href="https://pythonguides.com/" target="_blank">here</a><br>
-Codeacademy
-<a href="https://www.codecademy.com/catalog/language/python" target="_blank">here</a><br>
+Learn Python through W3School:
+<a href="https://www.w3schools.com/python/" target="_blank">Click here</a><br>
+Learn Python through Javatpoint:
+<a href="https://www.javatpoint.com/python-tutorial" target="_blank">Click here</a><br>
+Learn Python through Realpython
+<a href="https://realpython.com/" target="_blank">Click here</a><br>
+Learn Python through Pythonguides
+<a href="https://pythonguides.com/" target="_blank">Click here</a><br>
+Learn Python through Codeacademy
+<a href="https://www.codecademy.com/catalog/language/python" target="_blank">Click here</a><br>
 </div>
 </details>
 
-## Some Images which I used are: <br><br>
-<img src="https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png" width="100%" height="auto" /><br><br>
+###### Some Images which I used are: 
+<br><br>
+![variableExample1](https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png)<br><br>
 # 
-<img src="https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png" width="100%" height="auto" /><br><br>
+![VariableExample2](https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png)<br><br>
 #
-<img src="https://user-images.githubusercontent.com/89855559/190901184-5d80c57c-439a-4d8e-87f5-264c2ad2b5c2.png" width="100%" height="auto" /><br><br>
+![VariableExample3](https://user-images.githubusercontent.com/89855559/190901184-5d80c57c-439a-4d8e-87f5-264c2ad2b5c2.png)<br><br>
 #
-<img src="https://user-images.githubusercontent.com/89855559/190901185-b3157050-e189-40d5-814f-3514d06a6848.png" width="100%" height="auto" /><br><br>
+![VariableExample4](https://user-images.githubusercontent.com/89855559/190901185-b3157050-e189-40d5-814f-3514d06a6848.png)<br><br>
 #
 <img src="https://user-images.githubusercontent.com/89855559/190632773-1b1713a0-f1a5-46c3-9e34-91a8c7bf2958.png" width="100%" height="auto" /><br><br>
 #
