@@ -6,7 +6,7 @@
 ```
 git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 ```
-# More references Websites to Learn about Python<br>
+## More references Websites to Learn about Python<br>
 <details>
 <summary>Learn Python</summary>
 <div>
@@ -23,7 +23,7 @@ Codeacademy
 </div>
 </details>
 
-# Some Images which I used in Tutorial are: <br><br>
+## Some Images which I used are: <br><br>
 <img src="https://user-images.githubusercontent.com/89855559/190901181-bdcbbf78-86e2-44e0-98b5-c44331ce4c74.png" width="100%" height="auto" /><br><br>
 # 
 <img src="https://user-images.githubusercontent.com/89855559/190901183-7bd3c675-e83d-4257-ae73-ebdd42ff7b87.png" width="100%" height="auto" /><br><br>
