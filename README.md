@@ -43,4 +43,18 @@ Codeacademy
 <img src="https://user-images.githubusercontent.com/89855559/190900651-d9a02745-7baa-4b6b-b8aa-7581e3232e8e.png" width="100%" height="auto" /><br><br>
 #
 <img src="https://user-images.githubusercontent.com/89855559/190900655-527e6552-5f60-48bd-9c45-70641ef6c0f7.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138194-0d693a61-9c16-4044-8c9a-c8bc1c254d0e.PNG" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138187-271ad767-721f-4a4e-8266-fbc6ea545be3.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138189-9d5c0ca8-c671-464a-84b2-90a51617d670.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138186-b60ff5f5-6410-4021-8037-59c1b7202f09.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138197-00f5e6f5-5bae-4529-955f-6375cee0d701.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138536-e74f33bb-48f7-45e7-9fcb-3a71346b60b7.png" width="100%" height="auto" /><br><br>
+#
+<img src="https://user-images.githubusercontent.com/89855559/192138227-5c99413a-2457-454c-8465-0c1f1a597cac.png" width="100%" height="auto" /><br><br>
 
