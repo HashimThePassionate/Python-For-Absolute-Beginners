@@ -61,8 +61,9 @@ git clone git@github.com:Mhashiim710/python-course-for-beginner.git
 ![PythonMultiInheritance](https://user-images.githubusercontent.com/89855559/192138227-5c99413a-2457-454c-8465-0c1f1a597cac.png)<br><br>
 
 
-#### Modules and Pakages 
-[Modules and Pakages](https://github.com/HashimThePassionate/python-course-for-beginner/blob/main/Assests/Modules/Python%20Modules.pdf)
+#### Modules and Pakages:
+[Python Modules and Pakage.pdf](https://github.com/HashimThePassionate/python-course-for-beginner/blob/main/Assests/Modules/Python%20Modules.pdf)
+
 ###### Join Our Spartan Community:
 [Wp Spartan 300 Community](https://www.facebook.com/groups/wordpressspartans300).
 #
