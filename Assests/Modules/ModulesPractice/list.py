@@ -1,0 +1,5 @@
+student = ["Hamza", 21, "Spartan300"]     
+Field1 = ["Wp full stack",1]  
+Field2 = ["Mern Stack",2]    
+HOD_Field1 = [10,"Sr. Farooq"]    
+HOD_Field2 = [11, "Mr. Hamza"]  
