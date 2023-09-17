@@ -23,8 +23,6 @@ float (2.2, 3.5, 5.666675678)
 Build in Function:
 round() Rounds a numbers with the specified number of 
 decimals i.e. round(number, decimals) 
-
-
 lastly, Python has a handy way of making big int's easier to read
 4000000000 can be written as 
 4_000_000_000
@@ -40,7 +38,7 @@ lastly, Python has a handy way of making big int's easier to read
 10 / 4  # classic division returns a float
 10 // 4  # floor division discards the fractional part
 10 % 4 # the % operator returns the remainder of the division
-divmod(10,4)
+round(10,4)
 
 #Fancy sums
 50 - 5*6 
@@ -56,7 +54,6 @@ pow(2,7)
 width = 60
 height = 3 * 7
 width * height
-
 
 #In interactive mode, the last printed expression is assigned to the variable _.
 tax = 12.5 / 100
