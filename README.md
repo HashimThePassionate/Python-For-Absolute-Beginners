@@ -4,7 +4,7 @@
 2. Open a Git terminal
 3. Use the following commands to clone this repo:
 ```
-git clone git@github.com:Mhashiim710/python-course-for-beginner.git
+git clone https://github.com/HashimThePassionate/python-course-for-beginner.git
 ```
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
