@@ -100,6 +100,7 @@ Output
 This is non parametrized constructod id = =  2175972664240
 Address of class object =  2175972664240
 '''
+
 #Define Class Attribute
 '''
 Unlike instance attributes, class attributes are shared by all 
@@ -139,25 +140,6 @@ print("The Second  object counter value is ",p2.counter)
 The First  object counter value is  10
 The Second  object counter value is  10
 '''
-#Define instance methods
-'''
-If we use "instance variables" inside a method, 
-such methods are called instance methods.
-
-The "instance method" performs a set of actions on 
-the data/value provided by the "instance variables".
-
-To work with an instance method, we use the "self" keyword. 
-We use the "self" keyword as the "first parameter" to a method. 
-The "self" refers to the current object.
-'''
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def great(self):
-        return f"Hi, it's {self.name}."
 
 p1 = Person('Hashim', 22)
 print(p.great())
@@ -313,25 +295,29 @@ which is equivalent to Person(name, age).
 b = Person.calculate_age("Hamza", 2001)
 b.show()
 
-#Another Class Method Example
-class Person:
-    counter = 0
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-        Person.counter += 1
+#This is an Class Method Example 
+class Car:
+    num_wheels = 4  # Class variable shared among all instances
 
-    def show(self):
-        return f"Hi, it's {self.name}."
+    def __init__(self, color, make, model):
+        self.color = color  # Instance variable
+        self.make = make    # Instance variable
+        self.model = model  # Instance variable
 
-    @classmethod
-    def create_anonymous(cls):
-        return Person('Hashim', 22)  
+# Creating car instances
+car1 = Car("Red", "Toyota", "Camry")
+car2 = Car("Blue", "Honda", "Civic")
 
-a = Person("Hamza", 20)
-a.show()
-b = Person.create_anonymous()
-print(b.name)  # Anonymous
+# Accessing class variable
+print(car1.num_wheels)  # Outputs: 4
+print(car2.num_wheels)  # Outputs: 4
+
+# Changing class variable
+Car.num_wheels = 3
+
+# All instances reflect the change
+print(car1.num_wheels)  # Outputs: 3
+print(car2.num_wheels)  # Outputs: 3
 
 #Static Method 
 '''
