@@ -344,6 +344,58 @@ class TemperatureConverter:
         return 5 * (f - 32) / 9
 print(TemperatureConverter.celsius_to_fahrenheit(30))  # 86.0
 
+# Example of Class, Instance and Static Level Methods and Attributes
+class IAJK:
+    admin = "Administrator Tasks"
+    university = "COMSTATS UNIVERSITY ISLAMABAD"
+    library = "Books"
+    Sports = ["Cricket","Hockey","Football"]
+
+    def __init__(self,facultyMember, noOfStudents, departmentName, courseSubjects, noOfGrounds, admissions, courseDuration,courseName , courseTeacher ) -> None:
+        self.facultyMember = facultyMember
+        self.noOfStudents = noOfStudents
+        self.departName = departmentName
+        self.courseSubjects = courseSubjects
+        self.noOfGrounds = noOfGrounds
+        self.admissions = admissions
+        self.courseDuration = courseDuration
+        self.courseName = courseName
+        self.courseTeacher = courseTeacher
+
+    @classmethod
+    def uniInfo(cls):
+        print(f'{cls.admin}')
+        print(f'{cls.university}')
+        print(f'{cls.library}')
+        print(f'{cls.Sports}')
+
+    def Show(self):
+        print(f'Total Faculty Members are : {self.facultyMember}')
+        print(f'Your Department Name is : {self.departName}')
+        print(f'Number of Students are : {self.noOfStudents}')
+        print(f'Total Courses offers are : {self.courseSubjects}')
+        print(f'Sports Grounds are  : {self.noOfGrounds}')
+        print(f'Total  Admissions : {self.admissions}')
+        print(f'Course Durations : {self.courseDuration}')
+        print(f'Teacher Name  : {self.courseTeacher}')
+
+    @staticmethod
+    def iajkboy():
+        fileshandle = ["Document Print", "Files Racking"]
+        refreshment = ["Water", "Quette Chai"]
+        print(fileshandle)
+        print(refreshment)
+
+
+
+fm = int(input("Please Enter Total Faculty member"))
+ns = int(input("Please Enter Number of Studentsr"))
+dp = input("Please your Department Name")
+UIIT = IAJK(fm,ns,dp,10,1,100,"6 Months","DevOPS","Ehtisham")
+IAJK.uniInfo()
+UIIT.Show()
+IAJK.iajkboy()
+
 #Single inheritance
 '''
 A class can reuse another class by inheriting it. When a child class 
