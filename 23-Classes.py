@@ -354,6 +354,22 @@ Syntax
 class derived-class(base class):  
     <class-suite>  
 '''
+class father:
+    pocketMoney = 1000
+    def show(self):
+        print("Parent Class Instance Method")
+    @classmethod
+    def showMoney(cls):
+        print(cls.pocketMoney)
+class Son(father):
+    def display(self):
+        print("Child Class Instance Method")
+
+child = Son()
+child.show()
+child.showMoney()
+child.display()
+# --------------------------------------------------------------------------------
 class Animal:  
     def speak(self):  
         print("Animal Speaking") 
@@ -363,7 +379,73 @@ class Dog(Animal):
 d = Dog()  
 d.bark()  
 d.speak()  
+# ------------------------------------------------------------------------------------
+#Constructor in Single Inheritance
+class father:
+    def __init__(self,money):
+        self.money = money
+    def show(self):
+        print("Parent Class Instance Method")
+class Son(father):
+    def display(self):
+        print("Child Class Instance Method",self.money)
+s = Son(500)
+print(s.money)
+s.show()
+s.display()
 
+# ----------------------------------------------------------------------------------------
+#Constructor Overriding
+'''
+    If we write constructor in both classes, parent class and child class then the parent
+    class constructor will not available to the child class
+    In this case only child class constructor only accessible which means child class 
+    constructor is replacing parent class constructor.
+    Constructor ovveriding is used when the programmer want to modify the existing behaviour
+    of a constructor.
+
+'''
+class Father:
+    def __init__(self):
+        self.money = 1000
+        print("Father Class Constructor")
+    def show(self):
+        print("Parent Class Instance Method")
+class Son(Father):
+    def __init__(self):
+        self.money = 5000
+        self.car = "BMW"
+        print("Son Class Constructor", self.money, self.car)
+    def disp(self):
+        print("Parent Class Instance Method")
+S = Son()
+# -----------------------------------------------------------------------------
+#Constructor With Supper() Method
+'''
+    If we write constructor in both classes, parent class and child class then the parent
+    class constructor will not available to the child class
+    In this case only child class constructor only accessible which means child class 
+    constructor is replacing parent class constructor.
+    Super() Method is used to call parent class constructor from the child class
+
+'''
+class Father:
+    def __init__(self,money):
+        self.money = money
+        print("Father Class Constructor",self.money)
+    def show(self):
+        print("Parent Class Instance Method")
+class Son(Father):
+    def __init__(self,money,car):
+        super().__init__(3000)
+        self.money = money
+        self.car = car
+        print("Son Class Constructor", self.money, self.car)
+    def disp(self):
+        print("Parent Class Instance Method")
+S = Son(700000,"Mercendes")
+
+# ----------------------------------------------------------------------------------------
 #Python Multi-Level inheritance
 '''
 Multi-Level inheritance is possible in python like other object-oriented languages. 
@@ -379,22 +461,64 @@ class class2(class1):
 class class3(class2):  
     <class suite>  
 '''
+class Father:
+    def __init__(self, name):
+        self.name = name
+        print("Father Class Constructor")
+    def showFather(self):
+        print("Father Name:", self.name)
+class Son(Father):
+    def __init__(self, father_name, son_name):
+        super().__init__(father_name)
+        self.son_name = son_name
+        print("Son Class Constructor")
+    def showSon(self):
+        print("Son Name:", self.son_name)
+class GrandSon(Son):
+    def __init__(self, father_name, son_name, grandson_name):
+        super().__init__(father_name, son_name)
+        self.grandson_name = grandson_name
+        print("GrandSon Class Constructor")
+    def showGrandSon(self):
+        print("GrandSon Name:", self.grandson_name)
+father_name = "Jamshed"
+son_name = "Junaid"
+grandson_name = "Saifullah"
 
-class Animal:  
-    def speak(self):  
-        print("Animal Speaking")  
-#The child class Dog inherits the base class Animal  
-class Dog(Animal):  
-    def bark(self):  
-        print("dog barking")  
-#The child class Dogchild inherits another child class Dog  
-class DogChild(Dog):  
-    def eat(self):  
-        print("Eating bread...")  
-d = DogChild()  
-d.bark()  
-d.speak()  
-d.eat()  
+g = GrandSon(father_name, son_name, grandson_name)
+g.showSon()
+g.showGrandSon()
+g.showFather()
+# -----------------------------------------------------------------------
+#Hierarchical Inheritance
+# Base class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+# Derived class 1
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} says Woof!"
+
+# Derived class 2
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} says Meow!"
+
+# Derived class 3
+class Cow(Animal):
+    def speak(self):
+        return f"{self.name} says Moo!"
+
+# Create instances of the derived classes
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+cow = Cow("Bessie")
+
+# Call the speak method on instances of derived classes
+print(dog.speak())  # Output: Buddy says Woof!
+print(cat.speak())  # Output: Whiskers says Meow!
+print(cow.speak())  # Output: Bessie says Moo!
 
 #Python Multiple inheritance
 '''
@@ -413,6 +537,38 @@ class BaseN:
 class Derived(Base1, Base2, ...... BaseN):  
     <class-suite>  
 '''
+# Base class 1
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        pass
+
+# Base class 2
+class Bird:
+    def __init__(self, name):
+        self.name = name
+
+    def chirp(self):
+        pass
+
+# Derived class inheriting from both Animal and Bird
+class Parrot(Animal, Bird):
+    def speak(self):
+        return f"{self.name} says Hello!"
+    
+    def chirp(self):
+        return f"{self.name} chirps loudly!"
+
+# Create an instance of the derived class Parrot
+parrot = Parrot("Polly")
+
+# Call methods from both base classes
+print(parrot.speak())  # Output: Polly says Hello!
+print(parrot.chirp())  # Output: Polly chirps loudly!
+
+# --------------------------------------------------------------
 class Calculation1:  
     def Summation(self,a,b):  
         return a+b
