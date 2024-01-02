@@ -46,7 +46,6 @@ Since the Person class is incomplete; you need to use the pass
 statement to indicate that you’ll add more code to it later.
 
 ```python
-class Cat:
  class Person:
     pass
 print(Person)
@@ -59,7 +58,7 @@ An object is a container that contains data and functionality
 the data of an object is called the "state". 
 Python uses attributes to model the state of an object.
 ```python
-p = Person()
+p : Person = Person()
 ```
 ## Define instance attributes
 Python is dynamic. It means that you can add an attribute to an 
@@ -79,7 +78,7 @@ attributes "name" and "age":
 ```python
  #Parameterized Constructor
 class Person:
-    def __init__(self, name : str, age :int)->None:
+    def __init__(self, name : str, age : int) -> None:
         self.name = name  
         self.age = age
 ```
@@ -96,7 +95,7 @@ Self is always pointing to Current Object.
 
 
 ```python
-p = Person("Hashim",22)
+p : Person = Person("Hashim",22)
 ```
 The p object now has the name and age attributes. 
 To access an instance attribute, you use the dot notation. 
@@ -115,7 +114,7 @@ class check:
 	def __init__(self)-> None:
 		print("This is non parametrized constructod id =  ",id(self))
 
-obj = check()
+obj : check = check()
 print("Address of class object = ",id(obj))
 ```
 ## Output
@@ -133,20 +132,20 @@ For example, the following defines the "counter" class attribute
 in the Person class:
 ```python
 class Person:
-    counter = 0 #Attribute
-    def __init__(self, name : str, age : int)->None:
+    counter : int = 0 #Class Attribute
+    def __init__(self, name : str, age : int):
         self.name = name
         self.age = age
         Person.counter+=1
-    def great(self)->None:
+    def great(self):
         return f"Hi, it's {self.name}."
 ```
 The following creates two instances of the Person class and 
 shows the value of the counter:
 ```python
-p1 = Person('Hashim', 22)
+p1 : Person = Person('Hashim', 22)
 p1.great()
-p2 = Person('Hamza', 20)
+p2 : Person = Person('Hamza', 20)
 p2.great()
 print(Person.counter)
 Person.counter=10
@@ -188,7 +187,7 @@ Class variables are shared by all instances of a class. They are set by prefixin
 ### Example: Using Class Variables
 ```python
 class Dog:
-    species = "Canis familiaris"  # Class variable
+    species : str = "Canis familiaris"  # Class variable
     
     def __init__(self, name : str, age : int)-> None:
         self.name = name
@@ -200,36 +199,36 @@ class Dog:
 
 This is just Simple Example How we relate in real world Shopping Cart Ecommerce Website don't be confuse we can cover everything in very detail
 ```python
-class Product:
-    def __init__(self, product_id : int, name : str , price : int )-> None:
-        self.product_id = product_id
-        self.name = name
-        self.price = price
+from typing import List
 
-    def __str__(self)-> str:
+class Product:
+    def __init__(self, product_id: int, name: str, price: float) -> None:
+        self.product_id: int = product_id
+        self.name: str = name
+        self.price: float = price
+
+    def __str__(self) -> str:
         return f"{self.name} - ${self.price:.2f}"
 
 
 class ShoppingCart:
-    def __init__(self)-> None:
-        self.items = []
+    def __init__(self) -> None:
+        self.items: List[dict] = []
 
-    def add_item(self, product : str, quantity : int =1)-> None:
+    def add_item(self, product: Product, quantity: int = 1) -> None:
         self.items.append({"product": product, "quantity": quantity})
 
-    def remove_item(self, product:int)-> None:
-        for item in self.items:
-            if item["product"] == product:
-                self.items.remove(item)
+    def remove_item(self, product: Product) -> None:
+        self.items = [item for item in self.items if item["product"] != product]
 
-    def calculate_total(self)->int:
-        total = 0
+    def calculate_total(self) -> float:
+        total: float = 0
         for item in self.items:
             total += item["product"].price * item["quantity"]
         return total
 
-    def __str__(self)-> int:
-        cart_str = "Shopping Cart:\n"
+    def __str__(self) -> str:
+        cart_str: str = "Shopping Cart:\n"
         for item in self.items:
             cart_str += f"{item['product']} x{item['quantity']}\n"
         cart_str += f"Total: ${self.calculate_total():.2f}"
@@ -237,30 +236,30 @@ class ShoppingCart:
 
 
 class Customer:
-    def __init__(self, name : str, email: str)-> None:
-        self.name = name
-        self.email = email
-        self.shopping_cart = ShoppingCart()
+    def __init__(self, name: str, email: str) -> None:
+        self.name: str = name
+        self.email: str = email
+        self.shopping_cart: ShoppingCart = ShoppingCart()
 
-    def add_to_cart(self, product : str, quantity :int =1)-> None:
+    def add_to_cart(self, product: Product, quantity: int = 1) -> None:
         self.shopping_cart.add_item(product, quantity)
 
-    def remove_from_cart(self, product : str)-> None:
+    def remove_from_cart(self, product: Product) -> None:
         self.shopping_cart.remove_item(product)
 
-    def checkout(self)-> None:
-        total = self.shopping_cart.calculate_total()
+    def checkout(self) -> None:
+        total: float = self.shopping_cart.calculate_total()
         print(f"Thank you, {self.name}! Your total is ${total:.2f}.")
         self.shopping_cart = ShoppingCart()
 
 # Sample usage
 # Create some products
-product1 = Product(1, "T-shirt", 15.99)
-product2 = Product(2, "Jeans", 29.99)
-product3 = Product(3, "Sneakers", 49.99)
+product1: Product = Product(1, "T-shirt", 15.99)
+product2: Product = Product(2, "Jeans", 29.99)
+product3: Product = Product(3, "Sneakers", 49.99)
 
 # Create a customer
-customer = Customer("Alice", "alice@example.com")
+customer: Customer = Customer("Alice", "alice@example.com")
 
 # Add products to the customer's cart
 customer.add_to_cart(product1, 2)
@@ -325,7 +324,7 @@ which is equivalent to Person(name, age).
 ## This is an Class Method Example 
 ```python
 class Car:
-    num_wheels = 4  # Class variable shared among all instances
+    num_wheels : int = 4  # Class variable shared among all instances
 
     def __init__(self, color : str, make : str, model : str)-> None:
         self.color = color  # Instance variable
@@ -333,8 +332,8 @@ class Car:
         self.model = model  # Instance variable
 
 # Creating car instances
-car1 = Car("Red", "Toyota", "Camry")
-car2 = Car("Blue", "Honda", "Civic")
+car1 : Car = Car("Red", "Toyota", "Camry")
+car2 : Car = Car("Blue", "Honda", "Civic")
 
 # Accessing class variable
 print(car1.num_wheels)  # Outputs: 4
@@ -357,7 +356,7 @@ using the class name.
 ```python
 class Person:
     @staticmethod
-    def sample(x):
+    def sample(x : int):
         print('Inside static method', x)
 
 # call static method
@@ -366,41 +365,54 @@ Person.sample(10)
 #Another Example of static method
 class TemperatureConverter:
     @staticmethod
-    def celsius_to_fahrenheit(c):
+    def celsius_to_fahrenheit(c : int):
         return 9 * c / 5 + 32
 
     @staticmethod
-    def fahrenheit_to_celsius(f):
+    def fahrenheit_to_celsius(f : int):
         return 5 * (f - 32) / 9
 print(TemperatureConverter.celsius_to_fahrenheit(30))  # 86.0
 ```
 ##  Example of Class, Instance and Static Level Methods and Attributes
 ```python
-class IAJK:
-    admin = "Administrator Tasks"
-    university = "COMSTATS UNIVERSITY ISLAMABAD"
-    library = "Books"
-    Sports = ["Cricket","Hockey","Football"]
+from typing import List
 
-    def __init__(self,facultyMember, noOfStudents, departmentName, courseSubjects, noOfGrounds, admissions, courseDuration,courseName , courseTeacher ) -> None:
-        self.facultyMember = facultyMember
-        self.noOfStudents = noOfStudents
-        self.departName = departmentName
-        self.courseSubjects = courseSubjects
-        self.noOfGrounds = noOfGrounds
-        self.admissions = admissions
-        self.courseDuration = courseDuration
-        self.courseName = courseName
-        self.courseTeacher = courseTeacher
+class IAJK:
+    admin: str = "Administrator Tasks"
+    university: str = "COMSTATS UNIVERSITY ISLAMABAD"
+    library: str = "Books"
+    Sports: List[str] = ["Cricket", "Hockey", "Football"]
+
+    def __init__(
+        self,
+        facultyMember: int,
+        noOfStudents: int,
+        departmentName: str,
+        courseSubjects: int,
+        noOfGrounds: int,
+        admissions: int,
+        courseDuration: str,
+        courseName: str,
+        courseTeacher: str,
+    ) -> None:
+        self.facultyMember: int = facultyMember
+        self.noOfStudents: int = noOfStudents
+        self.departName: str = departmentName
+        self.courseSubjects: int = courseSubjects
+        self.noOfGrounds: int = noOfGrounds
+        self.admissions: int = admissions
+        self.courseDuration: str = courseDuration
+        self.courseName: str = courseName
+        self.courseTeacher: str = courseTeacher
 
     @classmethod
-    def uniInfo(cls):
+    def uniInfo(cls) -> None:
         print(f'{cls.admin}')
         print(f'{cls.university}')
         print(f'{cls.library}')
         print(f'{cls.Sports}')
 
-    def Show(self):
+    def Show(self) -> None:
         print(f'Total Faculty Members are : {self.facultyMember}')
         print(f'Your Department Name is : {self.departName}')
         print(f'Number of Students are : {self.noOfStudents}')
@@ -411,18 +423,15 @@ class IAJK:
         print(f'Teacher Name  : {self.courseTeacher}')
 
     @staticmethod
-    def iajkboy():
-        fileshandle = ["Document Print", "Files Racking"]
-        refreshment = ["Water", "Quette Chai"]
-        print(fileshandle)
-        print(refreshment)
-
+    def iajkboy() -> None:
+        fileshandle: List[str] = ["Document Print", "Files Racking"]
+        refreshment: List[str] = ["Juice", "Cake"]
 
 
 fm = int(input("Please Enter Total Faculty member"))
 ns = int(input("Please Enter Number of Studentsr"))
 dp = input("Please your Department Name")
-UIIT = IAJK(fm,ns,dp,10,1,100,"6 Months","DevOPS","Ehtisham")
+UIIT : IAJK = IAJK(fm,ns,dp,10,1,100,"6 Months","DevOPS","Ehtisham")
 IAJK.uniInfo()
 UIIT.Show()
 IAJK.iajkboy()
@@ -464,17 +473,17 @@ class derived-class(base class):
 ## Example
 ```python
 class father:
-    pocketMoney = 1000
-    def show(self):
+    pocketMoney : int = 1000
+    def show(self)-> None:
         print("Parent Class Instance Method")
     @classmethod
-    def showMoney(cls):
+    def showMoney(cls)-> None:
         print(cls.pocketMoney)
 class Son(father):
-    def display(self):
+    def display(self)-> None:
         print("Child Class Instance Method")
 
-child = Son()
+child : Son = Son()
 child.show()
 child.showMoney()
 child.display() 
@@ -488,14 +497,14 @@ Child Class Instance Method
 ## Constructor in Single Inheritance
 ```python
 class father:
-    def __init__(self,money):
+    def __init__(self,money:str)-> None:
         self.money = money
-    def show(self):
+    def show(self)-> None:
         print("Parent Class Instance Method")
 class Son(father):
-    def display(self):
+    def display(self)-> None:
         print("Child Class Instance Method",self.money)
-s = Son(500)
+s : Son = Son(500)
 print(s.money)
 s.show()
 s.display()
@@ -542,20 +551,20 @@ Son Class Constructor 5000 BMW
 
 ```python
 class Father:
-    def __init__(self,money):
+    def __init__(self,money: str)-> None:
         self.money = money
         print("Father Class Constructor",self.money)
-    def show(self):
+    def show(self)-> None:
         print("Parent Class Instance Method")
 class Son(Father):
-    def __init__(self,money,car):
+    def __init__(self,money: str ,car : str)-> None:
         super().__init__(3000)
         self.money = money
         self.car = car
         print("Son Class Constructor", self.money, self.car)
-    def disp(self):
+    def disp(self)-> None:
         print("Parent Class Instance Method")
-S = Son(700000,"Mercendes")
+S:Son = Son(700000,"Mercendes")
 ```
 ```python
 Father Class Constructor 3000
@@ -579,30 +588,30 @@ class class3(class2):
 ## Example of Multi-Level inheritance
 ```python
 class Father:
-    def __init__(self, name):
+    def __init__(self, name : str)-> None:
         self.name = name
         print("Father Class Constructor")
     def showFather(self):
         print("Father Name:", self.name)
 class Son(Father):
-    def __init__(self, father_name, son_name):
+    def __init__(self, father_name: str, son_name : str)-> None:
         super().__init__(father_name)
         self.son_name = son_name
         print("Son Class Constructor")
-    def showSon(self):
+    def showSon(self)-> None:
         print("Son Name:", self.son_name)
 class GrandSon(Son):
-    def __init__(self, father_name, son_name, grandson_name):
+    def __init__(self, father_name:str, son_name:str, grandson_name:str)-> None:
         super().__init__(father_name, son_name)
         self.grandson_name = grandson_name
         print("GrandSon Class Constructor")
-    def showGrandSon(self):
+    def showGrandSon(self)-> None:
         print("GrandSon Name:", self.grandson_name)
 father_name = "Jamshed"
 son_name = "Junaid"
 grandson_name = "Saifullah"
 
-g = GrandSon(father_name, son_name, grandson_name)
+g : GrandSon = GrandSon(father_name, son_name, grandson_name)
 g.showSon()
 g.showGrandSon()
 g.showFather()
@@ -621,27 +630,27 @@ Father Name: Jamshed
 ```python
 # Base class
 class Animal:
-    def __init__(self, name):
+    def __init__(self, name: str)-> None:
         self.name = name
 # Derived class 1
 class Dog(Animal):
-    def speak(self):
+    def speak(self)-> str:
         return f"{self.name} says Woof!"
 
 # Derived class 2
-class Cat(Animal):
+class Cat(Animal)-> str:
     def speak(self):
         return f"{self.name} says Meow!"
 
 # Derived class 3
 class Cow(Animal):
-    def speak(self):
+    def speak(self)-> str:
         return f"{self.name} says Moo!"
 
 # Create instances of the derived classes
-dog = Dog("Buddy")
-cat = Cat("Whiskers")
-cow = Cow("Bessie")
+dog : Dog = Dog("Buddy")
+cat : Cat = Cat("Whiskers")
+cow : Cow = Cow("Bessie")
 
 # Call the speak method on instances of derived classes
 print(dog.speak())  # Output: Buddy says Woof!
@@ -668,7 +677,7 @@ class Derived(Base1, Base2, ...... BaseN):
 2. Example 2
 ```python
 class Animal:
-    def __init__(self, name):
+    def __init__(self, name : str):
         self.name = name
 
     def speak(self):
@@ -676,7 +685,7 @@ class Animal:
 
 # Base class 2
 class Bird:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
     def chirp(self):
@@ -684,14 +693,14 @@ class Bird:
 
 # Derived class inheriting from both Animal and Bird
 class Parrot(Animal, Bird):
-    def speak(self):
+    def speak(self)-> str:
         return f"{self.name} says Hello!"
     
-    def chirp(self):
+    def chirp(self)-> str:
         return f"{self.name} chirps loudly!"
 
 # Create an instance of the derived class Parrot
-parrot = Parrot("Polly")
+parrot: Parrot = Parrot("Polly")
 
 # Call methods from both base classes
 print(parrot.speak())  # Output: Polly says Hello!
@@ -701,15 +710,15 @@ print(parrot.chirp())  # Output: Polly chirps loudly!
 ### Example: Inheriting from a Base Class
 ```python
 class Animal:
-    def __init__(self, name, age):
+    def __init__(self, name : str, age : int)-> None:
         self.name = name
         self.age = age
     
-    def speak(self):
+    def speak(self)-> None:
         print("Some generic sound")
 
 class Dog(Animal):
-    def bark(self):
+    def bark(self-> None:
         print("Woof!")
 ```
 
@@ -719,43 +728,46 @@ Here, we define an `Employee` class and two subclasses `Designer` and `Developer
 ### Base Class: Employee
 ```python
 class Employee:
-    def __init__(self, name, age, department):
-        self.name = name
-        self.age = age
-        self.department = department
+    def __init__(self, name: str, age: int, department: str) -> None:
+        self.name: str = name
+        self.age: int = age
+        self.department: str = department
     
-    def display_info(self):
+    def display_info(self) -> None:
         print(f"Name: {self.name}, Age: {self.age}, Department: {self.department}")
+
 ```
 
 ### Subclass: Designer
 ```python
 class Designer(Employee):
-    def __init__(self, name, age, department, tool):
+    def __init__(self, name: str, age: int, department: str, tool: str) -> None:
         super().__init__(name, age, department)
-        self.tool = tool
+        self.tool: str = tool
     
-    def display_info(self):
+    def display_info(self) -> None:
         super().display_info()
         print(f"Design Tool: {self.tool}")
+
 ```
 
 ### Subclass: Developer
 ```python
 class Developer(Employee):
-    def __init__(self, name, age, department, language):
+    def __init__(self, name: str, age: int, department: str, language: str) -> None:
         super().__init__(name, age, department)
-        self.language = language
+        self.language: str = language
     
-    def display_info(self):
+    def display_info(self) -> None:
         super().display_info()
         print(f"Programming Language: {self.language}")
+
 ```
 
 ### Usage Example
 ```python
-designer = Designer("Alice", 30, "Design", "Photoshop")
-developer = Developer("Bob", 25, "Development", "Python")
+designer : Designer = Designer("Alice", 30, "Design", "Photoshop")
+developer : Developer = Developer("Bob", 25, "Development", "Python")
 
 designer.display_info()
 developer.display_info()
