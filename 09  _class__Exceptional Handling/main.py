@@ -82,8 +82,8 @@ a=a+1
 a
 '''
 #ZeroDivisionError 
-a=2
-c=0
+a: int =2
+c : int= 0
 d=a/c
 '''
 Traceback (most recent call last):
@@ -103,7 +103,7 @@ If you want to throw an error when a certain condition occurs
 using raise, you could go about it like this:
 '''
 #Example1
-x = 10
+x : int = 10
 if x > 5:
     raise Exception('x should not exceed 5. The value of x was: {}'.format(x))
 
@@ -114,7 +114,7 @@ Exception: x should not exceed 5. The value of x was: 10
 '''
 
 #Example2
-num = [3, 4, 5, 7]  
+num : list= [3, 4, 5, 7]  
 if len(num) > 3:  
     raise Exception( f"Length of the given list must be less than or equal to 3 but is {len(num)}" ) 
 '''
@@ -136,7 +136,7 @@ The program can continue. If the condition turns out to be False,
 you can have the program throw an AssertionError exception.
 '''
 #Example1
-def square_root( Number ):  
+def square_root( Number: int )->None:  
     assert ( Number < 0), "Give a positive integer"  
     return Number**(1/2)  
   
@@ -154,7 +154,7 @@ Traceback (most recent call last):
 AssertionError: Give a positive integer)
 '''
 #Example2
-def avg(scores):    
+def avg(scores : int)-> int:    
     assert len(scores) != 0,"The List is empty."    
     return sum(scores)/len(scores)    
 scores2 = [67,59,86,75,92]    
@@ -181,7 +181,7 @@ which is more than the array's length, and handle the resulting
 exception.
 '''
 #Example
-a = ["Python", "Exceptions", "try and except"]  
+a : list = ["Python", "Exceptions", "try and except"]  
 try:  
     #looping through the elements of the array a, choosing a range that goes beyond the length of the array  
      for i in range( 4 ):  
@@ -203,7 +203,7 @@ Index out of range
 If there is no exception, this code block will be executed by 
 the Python interpreter 
 '''
-def reciprocal( num1 ):  
+def reciprocal( num1 : int )-> None :  
     try:  
         reci = 1 / num1  
     except ZeroDivisionError:  
@@ -323,89 +323,89 @@ print(no1)
 
 ________________________________________________________________________________________________________________________________________________________
 
-Python Guide
-Table of Contents
-Pass by Reference vs Pass by Value
-Mutable and Immutable Variables
-Runtime Error Classes
-Try-Except-Else-Finally Block
-YouTube link
-2 hour live session
+# Python Guide
+# Table of Contents
+# Pass by Reference vs Pass by Value
+# Mutable and Immutable Variables
+# Runtime Error Classes
+# Try-Except-Else-Finally Block
+# YouTube link
+# 2 hour live session
 
-Pass by Reference vs Pass by Value
-In Python, the way variables are passed to functions can be thought of as "pass by object reference". This means that the function receives a reference to the object, not a copy of the object. However, the behavior can seem like "pass by value" or "pass by reference" depending on whether the object is mutable or immutable.
+# Pass by Reference vs Pass by Value
+# In Python, the way variables are passed to functions can be thought of as "pass by object reference". This means that the function receives a reference to the object, not a copy of the object. However, the behavior can seem like "pass by value" or "pass by reference" depending on whether the object is mutable or immutable.
 
-Example: Pass by Value (with Immutable Types)
-def modify_value(num: int):
+# Example: Pass by Value (with Immutable Types)
+def modify_value(num: int)-> None:
     print("Inside function (before modification):", id(num))
     num = 10
     print("Inside function (after modification):", id(num))
 
-x = 5
+x : int = 5
 print("Before function call:", id(x))
 modify_value(x)
 print("After function call:", id(x))
-In this example, x is an integer (which is immutable). When we pass x to the function and modify it inside the function, the id (memory address) of num inside the function changes, indicating that a new integer object has been created. The id of x outside the function remains the same.
+# In this example, x is an integer (which is immutable). When we pass x to the function and modify it inside the function, the id (memory address) of num inside the function changes, indicating that a new integer object has been created. The id of x outside the function remains the same.
 
-Example: Pass by Reference (with Mutable Types)
-def modify_list(lst: list):
+# Example: Pass by Reference (with Mutable Types)
+def modify_list(lst: list)-> None:
     print("Inside function (before modification):", id(lst))
     lst.append(4)
     print("Inside function (after modification):", id(lst))
 
-my_list = [1, 2, 3]
+my_list : list= [1, 2, 3]
 print("Before function call:", id(my_list))
 modify_list(my_list)
 print("After function call:", id(my_list))
-In this example, my_list is a list (which is mutable). When we pass my_list to the function and modify it inside the function, the id of lst inside the function remains the same, indicating that the same list object is being modified. The id of my_list outside the function also remains the same.
+# In this example, my_list is a list (which is mutable). When we pass my_list to the function and modify it inside the function, the id of lst inside the function remains the same, indicating that the same list object is being modified. The id of my_list outside the function also remains the same.
 
-Mutable and Immutable Variables
-Variables in Python can be either mutable or immutable.
+# Mutable and Immutable Variables
+# Variables in Python can be either mutable or immutable.
 
-Mutable types can be changed after they are created. Examples include lists, dictionaries, and sets.
-Immutable types cannot be changed after they are created. Examples include integers, floats, strings, and tuples.
-Example: Mutable Type
-my_list = [1, 2, 3]
+# Mutable types can be changed after they are created. Examples include lists, dictionaries, and sets.
+# Immutable types cannot be changed after they are created. Examples include integers, floats, strings, and tuples.
+# Example: Mutable Type
+my_list : list = [1, 2, 3]
 print("Before modification:", my_list, "id:", id(my_list))
 my_list.append(4)
 print("After modification:", my_list, "id:", id(my_list))
-In this example, the list my_list is modified in place, and its id remains the same.
+# In this example, the list my_list is modified in place, and its id remains the same.
 
-Example: Immutable Type
-my_string = "hello"
+# Example: Immutable Type
+my_string : str= "hello"
 print("Before modification:", my_string, "id:", id(my_string))
 my_string = my_string + " world"
 print("After modification:", my_string, "id:", id(my_string))
-In this example, when we modify my_string, a new string object is created, and the id of my_string changes.
+# In this example, when we modify my_string, a new string object is created, and the id of my_string changes.
 
-Runtime Error Classes
-Python has several built-in error classes to handle runtime errors. Here are examples of some common runtime errors:
+# Runtime Error Classes
+# Python has several built-in error classes to handle runtime errors. Here are examples of some common runtime errors:
 
-IndexError
-Occurs when trying to access an index that is out of range.
+# IndexError
+# Occurs when trying to access an index that is out of range.
 
 try:
-    my_list = [1, 2, 3]
+    my_list :list = [1, 2, 3]
     print(my_list[3])  # This will raise an IndexError
 except IndexError as e:
     print("Caught an IndexError:", str(e))
 ZeroDivisionError
-Occurs when dividing by zero.
+# Occurs when dividing by zero.
 
 try:
-    result = 10 / 0  # This will raise a ZeroDivisionError
+    result : int= 10 / 0  # This will raise a ZeroDivisionError
 except ZeroDivisionError as e:
     print("Caught a ZeroDivisionError:", str(e))
-Try-Except-Else-Finally Block
-The try-except-else-finally block in Python is used for exception handling.
+# Try-Except-Else-Finally Block
+# The try-except-else-finally block in Python is used for exception handling.
 
-The try block contains the code that may raise an exception.
-The except block contains the code that is executed if an exception is raised.
-The else block contains the code that is executed if no exceptions are raised.
-The finally block contains the code that is always executed, regardless of whether an exception is raised.
+# The try block contains the code that may raise an exception.
+# The except block contains the code that is executed if an exception is raised.
+# The else block contains the code that is executed if no exceptions are raised.
+# The finally block contains the code that is always executed, regardless of whether an exception is raised.
 try:
-    numerator = 10
-    denominator = 2
+    numerator :int = 10
+    denominator : int = 2
     result = numerator / denominator
 except ZeroDivisionError as e:
     print("Caught a ZeroDivisionError:", str(e))
@@ -672,34 +672,34 @@ ________________________________________________________________________________
 
 
 
-Python Error Handling and File Handling Guide
-This guide provides an overview of error handling techniques in Python, including creating custom errors and dynamic error handling. It also covers file handling with various access modifiers and reading files of different types such as CSV, PDF, Excel, and audio files.
+# Python Error Handling and File Handling Guide
+# This guide provides an overview of error handling techniques in Python, including creating custom errors and dynamic error handling. It also covers file handling with various access modifiers and reading files of different types such as CSV, PDF, Excel, and audio files.
 
-YouTube link
-2 hour live session
+# YouTube link
+# 2 hour live session
 
-Table of Contents
-Error Handling
-Try-Except-Else
-Multiple Except Blocks
-Creating Custom Errors
-Dynamic Error Handling
-File Handling with Access Modifiers
-Read Mode (r)
-Read and Write Mode (r+)
-Write Mode (w)
-Write and Read Mode (w+)
-Append Mode (a)
-Append and Read Mode (a+)
-Binary Read Mode (rb)
-Reading Files
-Reading CSV Files
-Reading PDF Files
-Reading Excel Files
-Reading Audio Files
-Error Handling
-Try-Except-Else
-Using try, except, and else blocks allows you to handle errors gracefully and execute code when no errors occur.
+# Table of Contents
+# Error Handling
+# Try-Except-Else
+# Multiple Except Blocks
+# Creating Custom Errors
+# Dynamic Error Handling
+# File Handling with Access Modifiers
+# Read Mode (r)
+# Read and Write Mode (r+)
+# Write Mode (w)
+# Write and Read Mode (w+)
+# Append Mode (a)
+# Append and Read Mode (a+)
+# Binary Read Mode (rb)
+# Reading Files
+# Reading CSV Files
+# Reading PDF Files
+# Reading Excel Files
+# Reading Audio Files
+# Error Handling
+# Try-Except-Else
+# Using try, except, and else blocks allows you to handle errors gracefully and execute code when no errors occur.
 
 def divide(a: float, b: float) -> float:
     try:
@@ -710,8 +710,8 @@ def divide(a: float, b: float) -> float:
     else:
         print("Division successful")
         return result
-Multiple Except Blocks
-You can handle different types of exceptions using multiple except blocks.
+# Multiple Except Blocks
+# You can handle different types of exceptions using multiple except blocks.
 
 def convert_to_int(value: str) -> int:
     try:
@@ -722,8 +722,8 @@ def convert_to_int(value: str) -> int:
     except TypeError:
         print("Value must be a string!")
         return 0
-Creating Custom Errors
-You can create custom error classes by inheriting from the base Exception class.
+# Creating Custom Errors
+# You can create custom error classes by inheriting from the base Exception class.
 
 class NegativeValueError(Exception):
     def __str__(self) -> str:
@@ -733,8 +733,8 @@ def sqrt(value: float) -> float:
     if value < 0:
         raise NegativeValueError()
     return value ** 0.5
-Dynamic Error Handling
-You can handle errors dynamically by capturing the exception and analyzing it.
+# Dynamic Error Handling
+# You can handle errors dynamically by capturing the exception and analyzing it.
 
 def dynamic_error_handling(value: str) -> int:
     try:
@@ -742,55 +742,55 @@ def dynamic_error_handling(value: str) -> int:
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return 0
-File Handling with Access Modifiers
-Read Mode (r)
-Opens a file for reading.
+# File Handling with Access Modifiers
+# Read Mode (r)
+# Opens a file for reading.
 
 with open('file.txt', 'r') as f:
     content = f.read()
     print(content)
-Read and Write Mode (r+)
-Opens a file for reading and writing.
+# Read and Write Mode (r+)
+# Opens a file for reading and writing.
 
 with open('file.txt', 'r+') as f:
     content = f.read()
     print(content)
     f.write("New line")
-Write Mode (w)
-Opens a file for writing, creates the file if it does not exist, and truncates the file if it exists.
+# Write Mode (w)
+# Opens a file for writing, creates the file if it does not exist, and truncates the file if it exists.
 
 with open('file.txt', 'w') as f:
     f.write("Hello, World!")
-Write and Read Mode (w+)
-Opens a file for writing and reading.
+# Write and Read Mode (w+)
+# Opens a file for writing and reading.
 
 with open('file.txt', 'w+') as f:
     f.write("Hello, World!")
     f.seek(0)
     content = f.read()
     print(content)
-Append Mode (a)
-Opens a file for appending, creates the file if it does not exist.
+# Append Mode (a)
+# Opens a file for appending, creates the file if it does not exist.
 
 with open('file.txt', 'a') as f:
     f.write("Appending line")
-Append and Read Mode (a+)
-Opens a file for appending and reading.
+# Append and Read Mode (a+)
+# Opens a file for appending and reading.
 
 with open('file.txt', 'a+') as f:
     f.write("Appending line")
     f.seek(0)
     content = f.read()
     print(content)
-Binary Read Mode (rb)
-Opens a file in binary read mode.
+# Binary Read Mode (rb)
+# Opens a file in binary read mode.
 
 with open('file.txt', 'rb') as f:
     content = f.read()
     print(content)
-Reading Files
-Reading CSV Files
-You can use the csv module to read CSV files.
+# Reading Files
+# Reading CSV Files
+# You can use the csv module to read CSV files.
 
 import csv
 
@@ -798,28 +798,28 @@ with open('file.csv', 'r') as f:
     reader = csv.reader(f)
     for row in reader:
         print(row)
-Reading PDF Files
-You can use the PyPDF2 library to read PDF files.
+# Reading PDF Files
+# You can use the PyPDF2 library to read PDF files.
 
-import PyPDF2
+# import PyPDF2
 
 with open('file.pdf', 'rb') as f:
     reader = PyPDF2.PdfFileReader(f)
     text = reader.getPage(0).extractText()
     print(text)
-Reading Excel Files
-You can use the openpyxl library to read Excel files.
+# Reading Excel Files
+# You can use the openpyxl library to read Excel files.
 
-import openpyxl
+from typing import openpyxl
 
 wb = openpyxl.load_workbook('file.xlsx')
 sheet = wb.active
 cell = sheet['A1']
 print(cell.value)
-Reading Audio Files
-You can use the pydub library to read audio files.
+# Reading Audio Files
+# You can use the pydub library to read audio files.
 
-from pydub import AudioSegment
+from typing import pydub , AudioSegment
 
 audio = AudioSegment.from_file("file.mp3")
 print("Channels:", audio.channels)
@@ -828,11 +828,11 @@ print("Frame Rate:", audio.frame_rate)
 print("Frame Width:", audio.frame_width)
 print("Length (ms):", len(audio))
 print("Frame Count:", audio.frame_count())
-Remember to install the necessary libraries before running the code examples.
+# Remember to install the necessary libraries before running the code examples.
 
-pip install PyPDF2 openpyxl pydub
-This README provides a comprehensive guide on various error handling and file handling techniques in Python, along with examples of reading different file types. Feel free to modify and extend it as per your project's requirements.
-_________________________________________________________________________________________________________________________________________________
+# pip install PyPDF2 openpyxl pydub
+# This README provides a comprehensive guide on various error handling and file handling techniques in Python, along with examples of reading different file types. Feel free to modify and extend it as per your project's requirements.
+# _________________________________________________________________________________________________________________________________________________
 
 # Examples of Try Except Else 
 # def avg(scores):    

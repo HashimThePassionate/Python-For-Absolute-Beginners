@@ -29,7 +29,7 @@ In this example:
 You can also create custom exceptions using the `raise` statement:
 
 ```python
-def validate_age(age):
+def validate_age(age : int)->None:
     if age < 0 or age > 120:
         raise ValueError("Invalid age!")
     else:
