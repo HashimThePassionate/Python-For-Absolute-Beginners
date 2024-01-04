@@ -119,11 +119,3 @@ import math
 square_root: float = math.sqrt(25)
 sin_value: float = math.sin(math.radians(30))
 
-# Example 8: Complex numbers
-complex_num1: complex = 2 + 3j
-complex_num2: complex = 1 - 2j
-result_complex_addition: complex = complex_num1 + complex_num2
-
-
-
-
