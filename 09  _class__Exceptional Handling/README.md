@@ -6,18 +6,23 @@ In Python is a way to deal with errors that might occur during the execution of 
 Here's a basic example:
 
 ```python
-try:
-    # Code block where an exception might occur
-    result = 10 / 0  # This will raise a ZeroDivisionError
-except ZeroDivisionError as e:
-    # Handle the specific exception
-    print("Error:", e)
-else:
-    # This block is executed if no exception is raised in the try block
-    print("No errors occurred.")
-finally:
-    # This block is always executed, regardless of whether an exception occurred
-    print("Execution complete.")
+def divide_numbers() -> None:
+    try:
+        # Code block where an exception might occur
+        result: float = 10 / 0  # This will raise a ZeroDivisionError
+    except ZeroDivisionError as e:
+        # Handle the specific exception
+        print("Error:", e)
+    else:
+        # This block is executed if no exception is raised in the try block
+        print("No errors occurred.")
+    finally:
+        # This block is always executed, regardless of whether an exception occurred
+        print("Execution complete.")
+
+# Example usage
+divide_numbers()
+
 ```
 
 In this example:
@@ -29,7 +34,7 @@ In this example:
 You can also create custom exceptions using the `raise` statement:
 
 ```python
-def validate_age(age):
+def validate_age(age: int) -> None:
     if age < 0 or age > 120:
         raise ValueError("Invalid age!")
     else:
@@ -39,6 +44,7 @@ try:
     validate_age(150)  # This will raise a ValueError
 except ValueError as e:
     print("Error:", e)
+
 ```
 
 This code defines a function `validate_age` that raises a `ValueError` if the age is not within a certain range.
@@ -126,13 +132,21 @@ Error Handling
 Handle file-related errors using try and except blocks to ensure graceful handling of exceptions.
 
 ```python
+from typing import TextIO
+
+def read_file_content(file: TextIO[str]) -> str:
+    return file.read()
+
 try:
     with open('filename.txt', 'r') as file:
-        content = file.read()
-        # Perform operations
+        content = read_file_content(file)
+        # Perform operations on the content
 except FileNotFoundError:
     print("File not found.")
 except IOError:
     print("Error reading the file.")
+except Exception as e:
+    print("An unexpected error occurred:", e)
+
 ```
 Remember to handle file paths carefully and be cautious while performing write operations as they can overwrite existing content.
