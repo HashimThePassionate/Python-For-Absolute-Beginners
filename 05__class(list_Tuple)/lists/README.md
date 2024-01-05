@@ -35,10 +35,12 @@ sort() Sorts the list
 
 ### A list can be define as below
 ```python
-  L1 = ["John", 102, "USA"]    
-L2 = [1, 2, 3, 4, 5, 6]
-print(type(L1))  
-print(type(L2))  
+# Creating lists with mixed types
+L1: List[Union[str, int, str]] = ["John", 102, "USA"]
+L2: List[int] = [1, 2, 3, 4, 5, 6]
+
+print(type(L1))
+print(type(L2))
 
 ```
 
@@ -48,24 +50,29 @@ then it will come out to be a "list".
 
 ### lets check the list are same objects equal or not
 ```python
-  a = [1,2,"Peter",4.50,"Ricky",5,6]  
-b = [1,2,"Peter",4.50,"Ricky",5,6]  
-print(a is b)
-id(a)
-id(b)
+a: List[Union[int, str, float]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+b: List[Union[int, str, float]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+
+print(a is b)  # Output: False
+print(id(a))
+print(id(b))
+
 b = a
-print(a is b)
-id(a)
-id(b)
+
+print(a is b)  # Output: True
+print(id(a))
+print(id(b))
 
 ```
 
 ### Let's check the first statement that lists are the ordered.
 
 ```python
-a = [1,2,"Peter",4.50,"Ricky",5,6]  
-b = [1,2,5,"Peter",4.50,"Ricky",6]  
-a == b 
+a: List[Union[int, float, str]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+b: List[Union[int, float, str]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+
+result: bool = a == b
+print(result)
 ```
 
 Both lists have consisted of the same elements, but the second list 
@@ -75,16 +82,18 @@ of lists. When compare both lists it returns the false.
 Lists maintain the order of the element for the lifetime. That's why it 
 is the ordered collection of objects.
 ```python
-a = [1, 2,"Peter", 4.50,"Ricky",5, 6]  
-b = [1, 2,"Peter", 4.50,"Ricky",5, 6]  
-a == b  
+a: List[Union[int, float, str]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+b: List[Union[int, float, str]] = [1, 2, "Peter", 4.50, "Ricky", 5, 6]
+
+result: bool = a == b
+print(result)
 
 ```
 
 ### The basics
 ```python
-squares = [1, 4, 9, 16, 25]
-squares
+squares: List[int] = [1, 4, 9, 16, 25]
+print(squares)
 ```
 ### Indexing
 ```pyhon
@@ -120,7 +129,7 @@ squares + [36, 49, 64, 81, 100]
 cubes = [1, 8, 27, 65, 125]  # something's wrong here
 4 ** 3  # the cube of 4 is 64, not 65!
 cubes[3] = 64  # replace the wrong value
-cubes
+
 
 ```
 
@@ -128,37 +137,38 @@ cubes
 ```python
 cubes.append(216)  # add the cube of 6
 cubes.append(7 ** 3)  # and the cube of 7
-cubes
 
 ```
 ### Length
 
 ```python
-letters = ['a', 'b', 'c', 'd']
-len(letters)
+letters: List[str] = ['a', 'b', 'c', 'd']
+length: int = len(letters)
 
 ```
-
-
 ### Nesting
 ```python
-a = ['a', 'b', 'c']
-n = [1, 2, 3]
-x = [a, n]
-x = [ ['a', 'b', 'c'], [1, 2, 3] ]
-x
-x[0]
-x[0][1]
-x[1][2]
+# Type hints for variables
+a: List[str] = ['a', 'b', 'c']
+n: List[int] = [1, 2, 3]
+x: List[List[Union[str, int]]] = [a, n]
 
+# Alternatively, you can directly provide type hints to the lists
+# x: List[List[Union[str, int]]] = [['a', 'b', 'c'], [1, 2, 3]]
+
+print(x)
+print(x[0])
+print(x[0][1])
+print(x[1][2])
 ```
 ### nesting 2nd
 ```python
-a = ['a' , 'b' , 'c' , 'd']
-b = [1,2,4,5] 
-c = [1, 'abc' , 3 , 4]
-d = [a, b, c]
-d
+a: List[str] = ['a', 'b', 'c', 'd']
+b: List[int] = [1, 2, 4, 5]
+c: List[Union[int, str]] = [1, 'abc', 3, 4]
+d: List[List[Union[str, int, List[Union[int, str]]]]] = [a, b, c]
+
+print(d)
 
 ```
 ### Output
@@ -184,19 +194,28 @@ IndexError: list index out of range
 ### Let's have a look at the list example in detail.
 
 ```python
-student = ["Hamza", 21, "Spartan300"]     
-Field1 = ["Wp full stack",1]  
-Field2 = ["Mern Stack",2]    
-HOD_Field1 = [10,"Sr. Farooq"]    
-HOD_Field2 = [11, "Mr. Hamza"]    
-print("printing Student data...")    
-print("Name : %s, ID: %d, Team: %s"%(student[0],student[1],student[2]))    
-print("printing Fields of Expert...")   
-print("Field 1:\nName: %s, ID: %d\nField 2:\nName: %s, ID: %s"%(Field1[0],Field1[1],Field2[0],Field2[1]))    
-print("HOD Details ....")    
-print("HOD Name: %s, Id: %d"%(HOD_Field1[1],HOD_Field1[0]))    
-print("HOD Name: %s, Id: %d"%(HOD_Field2[1],HOD_Field2[0]))    
-print(type(student),type(Field1),type(Field2),type(HOD_Field1),type(HOD_Field2))  
+# Static type hints for variables
+student: List[Union[str, int]] = ["Hamza", 21, "Spartan300"]
+Field1: List[Union[str, int]] = ["Wp full stack", 1]
+Field2: List[Union[str, int]] = ["Mern Stack", 2]
+HOD_Field1: List[Union[int, str]] = [10, "Sr. Farooq"]
+HOD_Field2: List[Union[int, str]] = [11, "Mr. Hamza"]
+
+# Print Student data
+print("printing Student data...")
+print("Name : %s, ID: %d, Team: %s" % (student[0], student[1], student[2]))
+
+# Print Fields of Expert
+print("printing Fields of Expert...")
+print("Field 1:\nName: %s, ID: %d\nField 2:\nName: %s, ID: %s" % (Field1[0], Field1[1], Field2[0], Field2[1]))
+
+# Print HOD Details
+print("HOD Details ....")
+print("HOD Name: %s, Id: %d" % (HOD_Field1[1], HOD_Field1[0]))
+print("HOD Name: %s, Id: %d" % (HOD_Field2[1], HOD_Field2[0]))
+
+# Print types
+print(type(student), type(Field1), type(Field2), type(HOD_Field1), type(HOD_Field2))  
 
 ```
 
@@ -222,23 +241,23 @@ Lists are the most versatile data structures in Python since they
 are mutable, and their values can be updated by using the slice 
 and assignment operator.
 
-list = [1, 2, 3, 4, 5, 6]     
+my_list: List[int] = [1, 2, 3, 4, 5, 6]    
 print(list)     
 
  It will assign value to the value to the second index
 
-list[2] = 10   
-print(list)
+my_list[2] = 10
+print(my_list)
 
 ###  Adding multiple-element   
 ```python
-list[1:3] = [89, 78]     
-print(list)
+my_list[1:3] = [89, 78]
+print(my_list)
 ```   
 ###  It will add value at the end of the list  
 ```python
-list[-1] = 25  
-print(list) 
+my_list[-1] = 25
+print(my_list)
 
 
 ```
@@ -257,17 +276,20 @@ print(list)
 The concatenation (+) and repetition (*) operators work 
 in the same way as they were working with the strings.
 ```python
-l1 = [1, 2, 3, 4]
-l2 = [5, 6, 7, 8]
-print(l1*2+l2)
-print(l1+l2)
+ Static type hints for the lists
+l1: List[int] = [1, 2, 3, 4]
+l2: List[int] = [5, 6, 7, 8]
+
+ Print the result of expressions
+print(l1 * 2 + l2)
+print(l1 + l2)
 print(len(l1))
 
 ```
 
 ### Iterating a List
 ```python
-list = ["John", "David", "James", "Jonathan"]    
+my_list: List[str] = ["John", "David", "James", "Jonathan"]   
 for i in list:       
     print(i)  
 
@@ -275,7 +297,7 @@ for i in list:
 ### Adding elements to the list
 1. Declaring the empty list  
 ```python
-l =[]
+my_list: List[int] = [] 
 ```  
 ### Number of elements will be entered by the user    
 ```python
@@ -313,11 +335,11 @@ Python provides the remove() function which is used to remove the
 element from the list. Consider the following example to understand 
 this concept.
 ```python
-list = [0,1,2,3,4]     
+my_list: List[int] = [0, 1, 2, 3, 4]    
 print("printing original list: ");    
 for i in list:    
     print(i,end=" ")    
-list.remove(2)    
+my_list.remove(2)    
 print("\nprinting the list after the removal of first element...")    
 for i in list:    
     print(i,end=" ") 
@@ -348,11 +370,11 @@ newlist = [expression for item in iterable if condition == True]
 
 ### Example
 ```python
-numbers = [3, 5, 1, 7, 3, 9]  
-num = []  
+numbers: List[int] = [3, 5, 1, 7, 3, 9]
+num: List[int] = []
 for n in numbers:  
     num.append(n**2)  
-print(num)  
+print(num) 
 
 ```
 All of this can be accomplished with only single line of code using 

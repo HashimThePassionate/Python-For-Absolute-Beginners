@@ -15,46 +15,52 @@ index() Returns the index of the first element with the specified value
 '''
 
 #The basics - tuple packing
+from typing import Tuple, Union
+
+# Original code
 t = 12345, 54321, 'hello!'
-t[0]
-t
-type(t)
+print(t[0])
+print(t)
+print(type(t))
 
-T1 = (101, "Peter", 22)    
-T2 = ("Apple", "Banana", "Orange")     
-T3 = 10,20,30,40,50  
-  
-print(type(T1))  
-print(type(T2))  
-print(type(T3)) # Class Tuple
+T1: Tuple[Union[int, str, int]] = (101, "Peter", 22)
+T2: Tuple[str, str, str] = ("Apple", "Banana", "Orange")
+T3: Tuple[int, int, int, int, int] = 10, 20, 30, 40, 50
 
-#The tuple which is created without using parentheses 
+print(type(T1))
+print(type(T2))
+print(type(T3))  # Class Tuple
+
+# The tuple which is created without using parentheses 
 # is also known as tuple packing.
-a = 'abc', 2, 4, 'd'
-print(type(a)) # Class Tuple
+a: Tuple[str, int, int, str] = 'abc', 2, 4, 'd'
+print(type(a))  # Class Tuple
 
-#An empty tuple can be created as follows.
-T4 = ()
+# An empty tuple can be created as follows.
+T4: Tuple[()] = ()
 
-#Creating a tuple with single element is slightly different. 
-# We will need to put comma after the element to declare the tuple
-tup1 = ("JavaTpoint")  #String
-print(type(tup1))  
-#Creating a tuple with single element   
-tup2 = ("JavaTpoint",) #Tuple  
-print(type(tup2)) 
+# Creating a tuple with a single element is slightly different. 
+# We will need to put a comma after the element to declare the tuple
+tup1: Tuple[str] = ("JavaTpoint",)  # String
+print(type(tup1))
+
+# Creating a tuple with a single element   
+tup2: Tuple[str] = ("JavaTpoint",)  # Tuple
+print(type(tup2))
+
 '''
 Output
 <class 'str'>
 <class 'tuple'>
 '''
 #Example 1
-tuple1 = (10, 20, 30, 40, 50, 60)    
-print(tuple1)    
-count = 0    
-for i in tuple1:    
-    print("tuple1[%d] = %d"%(count, i))   
-    count = count+1  
+tuple1: Tuple[int, int, int, int, int, int] = (10, 20, 30, 40, 50, 60)
+print(tuple1)
+
+count: int = 0
+for i in tuple1:
+    print("tuple1[%d] = %d" % (count, i))
+    count += 1
 
 '''
 (10, 20, 30, 40, 50, 60)
@@ -67,12 +73,15 @@ tuple1[5] = 60
 '''
 
 #Example 2
-tuple1 = tuple(input("Enter the tuple elements ..."))  
-print(tuple1)    
-count = 0    
-for i in tuple1:    
-    print("tuple1[%d] = %s"%(count, i))   
-    count = count+1  
+# Assuming you want the tuple elements to be strings
+
+tuple1: Tuple[str, ...] = tuple(input("Enter the tuple elements ..."))
+print(tuple1)
+
+count: int = 0
+for i in tuple1:
+    print("tuple1[%d] = %s" % (count, i))
+    count += 1
 '''
 Output
 Enter the tuple elements ...123456
@@ -157,9 +166,10 @@ nested structure, which can be used as a dictionary.
 [(101, "John", 22), (102, "Mike", 28),  (103, "Dustin", 30)]  
 '''
 # Tuples may be nested:
-v = ([1, 2, 3], [3, 2, 1])
-u = v, (1, 2, 3, 4, 5)
-u
+v: Tuple[List[int], List[int]] = ([1, 2, 3], [3, 2, 1])
+u: Tuple[Tuple[List[int], List[int]], Tuple[int, int, int, int, int]] = v, (1, 2, 3, 4, 5)
+
+print(u)
 
 
  

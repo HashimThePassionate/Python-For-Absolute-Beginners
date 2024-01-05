@@ -19,29 +19,32 @@ However,a tuple can contain mutable objects.
 
 ### The basics - tuple packing
 ```python
-t = 12345, 54321, 'hello!'
-t[0]
-t
-type(t)
 
-T1 = (101, "Peter", 22)    
-T2 = ("Apple", "Banana", "Orange")     
-T3 = 10,20,30,40,50  
-  
-print(type(T1))  
-print(type(T2))  
-print(type(T3)) # Class Tuple
+# Original code
+t: Tuple[Union[int, str, str]] = 12345, 54321, 'hello!'
+print(t[0])
+print(t)
+print(type(t))
+
+T1: Tuple[int, str, int] = (101, "Peter", 22)
+T2: Tuple[str, str, str] = ("Apple", "Banana", "Orange")
+T3: Tuple[int, int, int, int, int] = 10, 20, 30, 40, 50
+
+print(type(T1))
+print(type(T2))
+print(type(T3))  # Class Tuple
 
 ```
 The tuple which is created without using parentheses is also known as tuple packing.
 ```python
-a = 'abc', 2, 4, 'd'
-print(type(a)) # Class Tuple
+# Creating a tuple with mixed types
+a: Tuple[Union[str, int, int, str]] = 'abc', 2, 4, 'd'
+print(type(a))  # Class Tuple
 
 ```
 ### An empty tuple can be created as follows.
 ```python
-T4 = ()
+T4: Tuple[()] = ()
 ```
 
 ### Creating a tuple with single element is slightly different.
@@ -49,11 +52,13 @@ T4 = ()
  We will need to put comma after the element to declare the tuple
 
 ```python
-tup1 = ("JavaTpoint")  #String
-print(type(tup1))  
-#Creating a tuple with single element   
-tup2 = ("JavaTpoint",) #Tuple  
-print(type(tup2)) 
+# Creating a tuple with a single string element
+tup1: Tuple[str] = ("JavaTpoint",)  # String
+print(type(tup1))
+
+# Creating a tuple with a single element
+tup2: Tuple[str] = ("JavaTpoint",)  # Tuple
+print(type(tup2))
 
 ```
 ## Output
@@ -64,12 +69,14 @@ print(type(tup2))
 ```
 ### Example 1
 ```python
-tuple1 = (10, 20, 30, 40, 50, 60)    
-print(tuple1)    
-count = 0    
-for i in tuple1:    
-    print("tuple1[%d] = %d"%(count, i))   
-    count = count+1  
+# Creating a tuple with integers
+tuple1: Tuple[int, int, int, int, int, int] = (10, 20, 30, 40, 50, 60)
+print(tuple1)
+
+count: int = 0
+for i in tuple1:
+    print("tuple1[%d] = %d" % (count, i))
+    count += 1
 
 ```
 ### Output
@@ -86,13 +93,14 @@ tuple1[5] = 60
 
 ### Example 2
 ```python
-tuple1 = tuple(input("Enter the tuple elements ..."))  
-print(tuple1)    
-count = 0    
-for i in tuple1:    
-    print("tuple1[%d] = %s"%(count, i))   
-    count = count+1  
+# Assuming the tuple elements are strings
+tuple1: Tuple[str, ...] = tuple(input("Enter the tuple elements ..."))
+print(tuple1)
 
+count: int = 0
+for i in tuple1:
+    print("tuple1[%d] = %s" % (count, i))
+    count += 1
 
 ```
 ### Output
@@ -141,7 +149,7 @@ print(tuple[0:6:2])
 
 ### Negative Indexing
 ```python
-tuple1 = (1, 2, 3, 4, 5)    
+tuple1: Tuple[int, int, int, int, int] = (1, 2, 3, 4, 5)   
 print(tuple1[-1])    
 print(tuple1[-4])    
 print(tuple1[-3:-1])  
@@ -165,7 +173,7 @@ as tuples are immutable. To delete an entire tuple, we can use the del
 keyword with the tuple name.
 
 ```python
-tuple1 = (1, 2, 3, 4, 5, 6)    
+tuple1: Tuple[int, int, int, int, int] = (1, 2, 3, 4, 5)    
 print(tuple1)    
 del tuple1[0]    
 print(tuple1)    
@@ -214,7 +222,6 @@ nested structure, which can be used as a dictionary.
 ```python
 v = ([1, 2, 3], [3, 2, 1])
 u = v, (1, 2, 3, 4, 5)
-u
 
 ```
 
