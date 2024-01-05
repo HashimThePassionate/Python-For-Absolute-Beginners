@@ -66,52 +66,66 @@ You can open a file using the open() function, specifying the file path and the 
 
 
 ### Open a file for reading
+```python
 file = open('filename.txt', 'r')
+```
 
 ### Open a file for writing
+```python
 file = open('filename.txt', 'w')
+```
 
 ### Open a file for appending
+```python
 file = open('filename.txt', 'a')
+```
 Reading from a File
 To read the contents of a file, you can use various methods like read(), readline(), or readlines().
 
 
 ### Read the entire file
+```python
 content = file.read()
+```
 
 ### Read one line at a time
+```python
 line = file.readline()
+```
 
 ### Read all lines into a list
+```python
 lines = file.readlines()
-Writing to a File
+```
+### Writing to a File
 To write content to a file, use the write() method. Remember to open the file in write or append mode.
-
+```python
 
 file.write("This is some text.")
+```
 
 # To write multiple lines
+```python
 lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
 file.writelines(lines)
-Closing a File
+```
+### Closing a File
 After performing operations on a file, it's essential to close it using the close() method.
-
-
+```python
 file.close()
+```
 Using 'with' Statement (Context Manager)
 A cleaner way to handle files is by using the with statement. It automatically closes the file once the block is exited.
-
-
+```python
 with open('filename.txt', 'r') as file:
     content = file.read()
-    # Perform operations
+```
 
 ### File automatically closed outside the block
 Error Handling
 Handle file-related errors using try and except blocks to ensure graceful handling of exceptions.
 
-
+```python
 try:
     with open('filename.txt', 'r') as file:
         content = file.read()
@@ -120,4 +134,5 @@ except FileNotFoundError:
     print("File not found.")
 except IOError:
     print("Error reading the file.")
+```
 Remember to handle file paths carefully and be cautious while performing write operations as they can overwrite existing content.
