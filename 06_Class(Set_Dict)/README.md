@@ -77,17 +77,19 @@ Mixed-Type Set:
 flags: set[bool] = set()
 Empty Set of Booleans:
 ```
-
+### Example 1
 ```python
-#Example 1
+
 Days : set[str] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}    
 print(Days)    
 print(type(Days))    
 print("looping through the set elements ... ")    
 for i in Days:    
     print(i)  
-
-    Output
+```
+###   Output
+```python
+  
 {'Friday', 'Tuesday', 'Monday', 'Saturday', 'Thursday', 'Sunday', 'Wednesday'}
 <class 'set'>
 looping through the set elements ... 
@@ -105,16 +107,18 @@ It can contain any type of element such as integer, float, tuple etc.
 But mutable elements (list, dictionary, set) can't be a member of set. 
 Consider the following example.
 
+### Creating a set which have immutable elements 
 ```python
-# Creating a set which have immutable elements  
+ 
 set1 : set [int, str, float] = {1,2,3, "JavaTpoint", 20.5, 14}  
 print(type(set1))  
 #Creating a set which have mutable element  
-set2 = {1,2,3,["Javatpoint",4]}  
+set2 : set [int, str] = {1,2,3,["Javatpoint",4]}  
 print(type(set2))  
+```
+### Output
+```python
 
-'''
-Output
 <class 'set'>
 ```
 
@@ -150,8 +154,9 @@ print(type(set3))
 # Empty set using set() function  
 set4 = set()  
 print(type(set4))  
-'''
-Output
+```
+### Output
+```python
 <class 'dict'>
 <class 'set'>
 ```
@@ -163,17 +168,17 @@ to add some particular item to the set. The add() method is used to add a
 single element whereas the update() method is used to add multiple elements 
 to the set. Consider the following example.
 
-
+### Example
 ```python
-#Example
+
 set = {"January","February"}
 set.add(""March"")
 set.update({"April", "May", "June"})
 for i in set:    
-    print(i)  
-
-'''
-Output
+    print(i)
+```
+### Output
+```python
 March
 May
 February
@@ -225,9 +230,9 @@ The union of two sets is calculated by using the pipe (|) operator.
 or the union() function The union of the two sets contains all 
 the items that are present in 
 both the sets.
-
+### Example 1: using union | operator
 ```python
-#Example 1: using union | operator
+
 a : set[str] = {"a", "b", "c", "d", "e"}
 b : set[str] = {"b", "d", "f", "a", "c"}
 a|b
