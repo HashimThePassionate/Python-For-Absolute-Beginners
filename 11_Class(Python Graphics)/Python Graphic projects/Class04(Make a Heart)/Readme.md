@@ -1,5 +1,5 @@
 ## Code structure
-    ```python
+   ```python
     from turtle import *
 wn = Screen()
 wn.setup(width=400, height=400)

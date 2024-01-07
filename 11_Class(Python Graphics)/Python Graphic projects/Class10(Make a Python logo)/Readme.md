@@ -1,5 +1,5 @@
 ## Code structure
-    ```python
+ ```python
     from turtle import *
 
 t = Turtle()
