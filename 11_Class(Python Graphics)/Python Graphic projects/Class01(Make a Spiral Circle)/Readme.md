@@ -1,5 +1,5 @@
 ## Code structure
-    ```python
+```python
     # Import the turtle library for
 # drawing the required curve
 from turtle  import *
