@@ -1,5 +1,5 @@
 ## Code structure
-    ```python
+```python
     from turtle import *
 
 
@@ -542,7 +542,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-   ``` 
+ ``` 
     
    # Explaination:
  
