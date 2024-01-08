@@ -5,7 +5,9 @@
 3. Use the following commands to clone this repo:
 ```
 git clone https://github.com/HashimThePassionate/
-Python-For-Absolute-Beginners.git```
+Python-For-Absolute-Beginners.git
+```
+
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
 <p>
