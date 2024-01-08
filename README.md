@@ -1,11 +1,11 @@
-> # Python-course-for-Absolute-Beginners
+> # Python-For-Absolute-Beginners
 ## Get your own copy of this repository
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
 3. Use the following commands to clone this repo:
 ```
-git clone https://github.com/HashimThePassionate/python-course-for-beginner.git
-```
+git clone https://github.com/HashimThePassionate/
+Python-For-Absolute-Beginners.git```
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
 <p>
