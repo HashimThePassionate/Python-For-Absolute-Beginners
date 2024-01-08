@@ -1,4 +1,4 @@
-> # Python-course-for-beginner
+> # Python-course-for-Absolute-Beginners
 ## Get your own copy of this repository
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
