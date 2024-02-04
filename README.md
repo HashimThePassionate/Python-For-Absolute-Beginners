@@ -69,6 +69,6 @@ git clone https://github.com/HashimThePassionate/python-course-for-beginner.git
 #
 ###### Regards 
 ```
-Muhammad Hashim
+Muhammad Hashim Tahir
 ```
 
