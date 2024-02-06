@@ -1,4 +1,4 @@
-> # Python-For-Absolute-Beginners
+# Python-For-Absolute-Beginners
 ## Get your own copy of this repository
 1. Navigate to your development directory on you machine
 2. Open a Git terminal
@@ -7,6 +7,33 @@
 git clone https://github.com/HashimThePassionate/
 Python-For-Absolute-Beginners.git
 ```
+
+##What is python?
+- The World Fastest growing programming language not just for
+1. Software Engineers
+2. Mathematicians
+3. Data Analysts
+4. Accountants
+5. Scientists
+6. Network Engineers
+7. or Even kids 🤣
+
+- We can say python is a first ideal programming language we must learn first
+- here is sixth reasons
+1. Solve complex problems in less time with fewer lines of code.
+2. Python is multi purpose langauages 
+* Data Analysis
+* AI \ ML
+* Automation
+* Web Apps
+* Mobile Apps
+* Desktop Apps
+* Software Testing
+* Hacking
+3. High-Level 
+4. Huge Community
+5. Cross-platform
+6. Large Ecosystem
 
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
