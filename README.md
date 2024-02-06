@@ -35,6 +35,18 @@ Python-For-Absolute-Beginners.git
 5. Cross-platform
 6. Large Ecosystem
 
+## Click on this link to download python version
+[Download-Python](https://www.python.org/downloads/)
+
+1. Now download the latest version
+2. After download click to install python
+3. make sure to check "Add python to PATH"
+4. Click on "INSTALL NOW"
+5. After installtion on windows open command propmt
+6. Type python, python interpreter activated
+7. for exit type "Ctrl+z'
+ 
+
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
 <p>
