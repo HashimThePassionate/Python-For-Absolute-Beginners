@@ -60,6 +60,13 @@ Python-For-Absolute-Beginners.git
 4. To skip python interpreter
 5. Simply on windows type "Crtl + z" or use exit()
 
+## Its time to run python programming fast
+1. Use Vs Code editor for editor
+2. Convert VS code to IDE Indegrated Development Invironment
+3. Install python extension in vs code
+4. Install autopep8 extension in vs code
+5. setup autopep8 settings
+
 
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
