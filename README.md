@@ -8,7 +8,7 @@ git clone https://github.com/HashimThePassionate/
 Python-For-Absolute-Beginners.git
 ```
 
-##What is python?
+## What is python?
 - The World Fastest growing programming language not just for
 1. Software Engineers
 2. Mathematicians
@@ -35,6 +35,7 @@ Python-For-Absolute-Beginners.git
 5. Cross-platform
 6. Large Ecosystem
 
+
 ## Click on this link to download python version
 [Download-Python](https://www.python.org/downloads/)
 
@@ -46,6 +47,19 @@ Python-For-Absolute-Beginners.git
 6. Type python, python interpreter activated
 7. for exit type "Ctrl+z'
  
+## Its time to getting started with python
+1. Open command prompt and type python --version to python version
+2. also type py or python to activate python
+3. Now python is activate run these commands
+```
+2+2
+2 > 1
+2 == 1
+2 > 
+```
+4. To skip python interpreter
+5. Simply on windows type "Crtl + z" or use exit()
+
 
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
