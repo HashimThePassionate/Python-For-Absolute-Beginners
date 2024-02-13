@@ -67,6 +67,16 @@ Python-For-Absolute-Beginners.git
 4. Install autopep8 extension in vs code
 5. setup autopep8 settings
 
+## Run your first python program in vs code
+1. Create folder name "Python"
+2. Open Folder and right click to open in vs code
+3. create file main.py and type 
+```
+print('Welcome to Python Programming Fun 🤣')
+print("*"*5)
+```
+
+
 
 ## More references Websites to Learn about Python<br>
 <details><summary>LEARN PYTHON</summary>
