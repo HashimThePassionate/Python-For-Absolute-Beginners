@@ -66,6 +66,8 @@ Python-For-Absolute-Beginners.git
 3. Install python extension in vs code
 4. Install autopep8 extension in vs code
 5. setup autopep8 settings
+6. Install mypy package for python type hinting errors
+pip install mypy
 
 ## Run your first python program in vs code
 1. Create folder name "Python"
