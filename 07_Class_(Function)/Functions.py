@@ -132,17 +132,17 @@ It implies that if we modify the value of an argument within a function,
 the change is also reflected in the calling function. For instance,
 '''
 # defining the function  
-def square( my_list:list ):  
-    '''''This function will find the square of items in list'''  
-    squares = []  
-    for l in my_list:  
-        squares.append( l**2 )  
-    return squares  
-  
-# calling the defined function  
-list_:list = [1, 2, 4, 6, 8, 10]
-result = square( list_ )  
-print( "Squares of the list is: ", result )  
+def square(my_list):
+    """This function will find the square of items in the list"""
+    for i in range(len(my_list)):
+        my_list[i] = my_list[i] ** 2
+    return my_list
+
+# calling the defined function
+list_ = [1, 2, 4, 6, 8, 10]
+print(f'Before: {list_}')
+result = square(list_)
+print(f"After: {list_}")
 
 #Function Arguments
 '''
