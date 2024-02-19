@@ -663,4 +663,60 @@ def say_hello():
 
 say_hello()
 
+from typing import Union
+import re
 
+
+def validate_cnic_format(cnic: str) -> bool:
+    """
+    Validates the format of a CNIC when passed as a string.
+    Format should be "*****-*******-*" where * represents any digit.
+    """
+    pattern = r'^\d{5}-\d{7}-\d{1}$'
+    return bool(re.match(pattern, cnic))
+
+
+def format_cnic(cnic: str) -> str:
+    """
+    Formats the CNIC string by inserting hyphens after the first five digits and the next seven digits.
+    """
+    return f"{cnic[:5]}-{cnic[5:12]}-{cnic[12:]}"
+
+
+def CNIC(cnic: Union[int, str]) -> Union[int, str]:
+    """
+    Validates and returns the CNIC.
+    If passed as a string, automatically formats the CNIC string with hyphens if it doesn't match the desired format.
+    """
+    if isinstance(cnic, int):
+        return cnic
+    elif isinstance(cnic, str):
+        if validate_cnic_format(cnic):
+            return cnic
+        else:
+            formatted_cnic = format_cnic(cnic)
+            print(f'Without format {cnic}')
+            print(f"Automatically formatted CNIC: {formatted_cnic}")
+            return formatted_cnic
+    else:
+        raise TypeError("CNIC must be either an integer or a string")
+
+
+# Test cases
+try:
+    sum_result = CNIC(1430138428791)
+    print(f'Your CNIC is {sum_result}')
+except ValueError as e:
+    print(e)
+
+try:
+    sum_result = CNIC("14301-3842879-1")
+    print(f'Your CNIC is {sum_result}')
+except ValueError as e:
+    print(e)
+
+try:
+    sum_result = CNIC("1430138428791")
+    print(f'Your CNIC is {sum_result}')
+except ValueError as e:
+    print(e)
