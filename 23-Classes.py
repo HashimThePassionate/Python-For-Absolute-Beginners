@@ -257,6 +257,76 @@ print(customer.shopping_cart)
 # Checkout
 customer.checkout()
 
+from typing import Dict, Optional
+
+class Account:
+    def __init__(self, account_number: str, pin: str, balance: float = 0.0) -> None:
+        self.account_number: str = account_number
+        self.pin: str = pin
+        self.balance: float = balance
+
+    def deposit(self, amount: float) -> bool:
+        self.balance += amount
+        return True
+
+    def withdraw(self, amount: float) -> bool:
+        if self.balance >= amount:
+            self.balance -= amount
+            return True
+        else:
+            return False
+
+    def get_balance(self) -> float:
+        return self.balance
+
+class Transaction:
+    @staticmethod
+    def check_pin(account: Account, pin: str) -> bool:
+        return account.pin == pin
+
+class ATM:
+    def __init__(self, bank_name: str) -> None:
+        self.bank_name: str = bank_name
+
+    def authenticate_user(self, account_number: str, pin: str) -> Optional[Account]:
+        # Assuming accounts are stored in a dictionary
+        if account_number in accounts:
+            account = accounts[account_number]
+            if Transaction.check_pin(account, pin):
+                return account
+        return None
+
+    def deposit(self, account: Account, amount: float) -> str:
+        if account.deposit(amount):
+            return f"Deposit successful. New balance is {account.get_balance()}"
+        else:
+            return "Deposit unsuccessful. Insufficient funds."
+
+    def withdraw(self, account: Account, amount: float) -> str:
+        if account.withdraw(amount):
+            return f"Withdrawal successful. New balance is {account.get_balance()}"
+        else:
+            return "Withdrawal unsuccessful. Insufficient funds."
+
+# Example usage:
+
+# Creating some accounts
+accounts: Dict[str, Account] = {
+    '123456': Account('123456', '1234', 1000.0),
+    '789012': Account('789012', '5678', 500.0),
+}
+
+# Creating an ATM
+atm: ATM = ATM("Al Habib Bank")
+
+# Authenticating a user
+account = atm.authenticate_user('123456', '1234')
+if account:
+    print("Authentication successful")
+    print(atm.deposit(account, 500.0))  # Depositing money
+    print(atm.withdraw(account, 200.0))  # Withdrawing money
+else:
+    print("Authentication failed")
 
 #Define class method
 '''
