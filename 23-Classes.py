@@ -573,14 +573,21 @@ class Point:
 
     def __str__(self) -> str:
         return f'Point({self.x},{self.y})'
+    
     def __eq__(self,other) -> bool:
         return self.x == other.x  and self.y == other.y
+    def __gt__(self,other) -> bool:
+        return self.x > other.x  and self.y > other.y
+        
 
 
 p1: Point = Point(1, 2)
 p2: Point = Point(1, 2)
+p3: Point = Point(10, 20)
+p4: Point = Point(1, 2)
 print(p)
 print(p1 == p2)
+print(p3 >  p4)
 
 
 # Single inheritance
