@@ -171,7 +171,7 @@ Example 1: Variable Assignment
 
 age : int = 25
 name : str = "Ahmed"
-heaight : float = 5.5
+height : float = 5.5
 quize : bool =  true
 
 Assigns a value to a variable.
@@ -221,6 +221,8 @@ user_input_value : str = "example"
 
 Follows a recommended naming convention for variables.
 ```
+
+
 
 # 5. Operators
 

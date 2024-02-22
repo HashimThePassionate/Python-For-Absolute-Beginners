@@ -21,7 +21,7 @@ Class definitions, like function definitions (def statements)
 must be executed before they have any effect.
 
 '''
-#Define a class
+# Define a class
 '''
 To define a class, you use the class keyword followed by 
 the class name. For example, the following defines a Person class:
@@ -29,8 +29,16 @@ the class name. For example, the following defines a Person class:
 Since the Person class is incomplete; you need to use the pass 
 statement to indicate that you’ll add more code to it later.
 '''
+
+
+
+
+from datetime import date
+from typing import Dict, Optional
 class Person:
     pass
+
+
 print(Person)
 print(id(Person))
 '''
@@ -44,7 +52,7 @@ Python uses attributes to model the state of an object.
 '''
 p = Person()
 
-#Define instance attributes
+# Define instance attributes
 '''
 Python is dynamic. It means that you can add an attribute to an 
 instance of a class dynamically at runtime.
@@ -59,12 +67,16 @@ you use the __init__ method also known as constructor. The following
 defines the Person class with two instance 
 attributes "name" and "age":
 '''
-#Parameterized Constructor
+# Parameterized Constructor
+
+
 class Person:
     def __init__(self, name, age):
-        self.name = name  
+        self.name = name
         self.age = age
-#The following creates a Person object named person:
+
+
+# The following creates a Person object named person:
 '''
 When you create a Person object, Python automatically calls 
 the __init__ method to initialize the instance attributes. 
@@ -77,7 +89,7 @@ It binds the attributes with the given arguments
 
 Self is always pointing to Current Object.
 '''
-p = Person("Hashim",22)
+p = Person("Hashim", 22)
 '''
 The p object now has the name and age attributes. 
 To access an instance attribute, you use the dot notation. 
@@ -87,21 +99,24 @@ attribute of the person object
 p.name
 p.age
 
-#Non-parameterized Constructor
-#it is clearly seen that self and obj is referring to the same object
+# Non-parameterized Constructor
+# it is clearly seen that self and obj is referring to the same object
+
+
 class check:
-	def __init__(self):
-		print("This is non parametrized constructod id =  ",id(self))
+    def __init__(self):
+        print("This is non parametrized constructod id =  ", id(self))
+
 
 obj = check()
-print("Address of class object = ",id(obj))
+print("Address of class object = ", id(obj))
 '''
 Output
 This is non parametrized constructod id = =  2175972664240
 Address of class object =  2175972664240
 '''
 
-#Define Class Attribute
+# Define Class Attribute
 '''
 Unlike instance attributes, class attributes are shared by all 
 instances of the class. They are helpful if you want to define 
@@ -111,27 +126,32 @@ instances of a class.
 For example, the following defines the "counter" class attribute 
 in the Person class:
 '''
+
+
 class Person:
-    counter = 0 #Attribute
+    counter = 0  # Attribute
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
-        Person.counter+=1
+        Person.counter += 1
+
     def great(self):
         return f"Hi, it's {self.name}."
 
-#The following creates two instances of the Person class and 
-#shows the value of the counter:
+# The following creates two instances of the Person class and
+# shows the value of the counter:
+
 
 p1 = Person('Hashim', 22)
 p1.great()
 p2 = Person('Hamza', 20)
 p2.great()
 print(Person.counter)
-Person.counter=10
+Person.counter = 10
 print(Person.counter)
-print("The First  object counter value is ",p1.counter)
-print("The Second  object counter value is ",p2.counter)
+print("The First  object counter value is ", p1.counter)
+print("The Second  object counter value is ", p2.counter)
 '''
 "Hi, it's Hashim."
 "Hi, it's Hamza."
@@ -157,21 +177,27 @@ An instance method can freely access attributes and even modify
 the value of "attributes" of an object by using the "self" parameter.
 
 '''
-#Let’s create the instance method update() method 
-#to modify the Person age and roll number
+# Let’s create the instance method update() method
+# to modify the Person age and roll number
+
+
 class Person:
     def __init__(self, roll_no, name, age):
         self.roll_no = roll_no
         self.name = name
         self.age = age
     # instance method access instance variable
+
     def show(self):
-        print('Roll Number:', self.roll_no, 'Name:', self.name, 'Age:', self.age,)
+        print('Roll Number:', self.roll_no,
+              'Name:', self.name, 'Age:', self.age,)
     # instance method to modify instance variable
-    def update(self, roll_number,name, age):
+
+    def update(self, roll_number, name, age):
         self.roll_no = roll_number
         self.name = name
         self.age = age
+
 
 # create object
 s = Person(2, "Hashim", 21)
@@ -180,8 +206,9 @@ print(Person.counter)
 s.show()
 
 # Modify instance variables
-s.update(1,"Hamza", 20)
+s.update(1, "Hamza", 20)
 s.show()
+
 
 class Tiger:
     # def __init(self) -> None:
@@ -234,7 +261,7 @@ david.tiger_diet_plan = '3 / 3'
 david.tiger_reports()
 
 
-#This is just Simple Example How we relate in real world Shopping Cart Ecommerce Website don't be confuse we can cover everything in very detail
+# This is just Simple Example How we relate in real world Shopping Cart Ecommerce Website don't be confuse we can cover everything in very detail
 class Product:
     def __init__(self, product_id, name, price):
         self.product_id = product_id
@@ -288,6 +315,7 @@ class Customer:
         print(f"Thank you, {self.name}! Your total is ${total:.2f}.")
         self.shopping_cart = ShoppingCart()
 
+
 # Sample usage
 # Create some products
 product1 = Product(1, "T-shirt", 15.99)
@@ -308,7 +336,6 @@ print(customer.shopping_cart)
 # Checkout
 customer.checkout()
 
-from typing import Dict, Optional
 
 class Account:
     def __init__(self, account_number: str, pin: str, balance: float = 0.0) -> None:
@@ -330,10 +357,12 @@ class Account:
     def get_balance(self) -> float:
         return self.balance
 
+
 class Transaction:
     @staticmethod
     def check_pin(account: Account, pin: str) -> bool:
         return account.pin == pin
+
 
 class ATM:
     def __init__(self, bank_name: str) -> None:
@@ -361,6 +390,7 @@ class ATM:
 
 # Example usage:
 
+
 # Creating some accounts
 accounts: Dict[str, Account] = {
     '123456': Account('123456', '1234', 1000.0),
@@ -379,7 +409,7 @@ if account:
 else:
     print("Authentication failed")
 
-#Define class method
+# Define class method
 '''
 inside an instance method, we use the self keyword to access or modify the 
 instance variables. Same inside the class method, we use the cls keyword as 
@@ -388,7 +418,8 @@ a first parameter to access class variables
 The class method can only access the class attributes, not the instance attributes
 
 '''
-from datetime import date
+
+
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -403,6 +434,7 @@ class Person:
     def show(self):
         print(self.name + "'s age is: " + str(self.age))
 
+
 a = Person('Hashim', 21)
 a.show()
 
@@ -416,7 +448,9 @@ which is equivalent to Person(name, age).
 b = Person.calculate_age("Hamza", 2001)
 b.show()
 
-#This is an Class Method Example 
+# This is an Class Method Example
+
+
 class Car:
     num_wheels = 4  # Class variable shared among all instances
 
@@ -424,6 +458,7 @@ class Car:
         self.color = color  # Instance variable
         self.make = make    # Instance variable
         self.model = model  # Instance variable
+
 
 # Creating car instances
 car1 = Car("Red", "Toyota", "Camry")
@@ -440,21 +475,26 @@ Car.num_wheels = 3
 print(car1.num_wheels)  # Outputs: 3
 print(car2.num_wheels)  # Outputs: 3
 
-#Static Method 
+# Static Method
 '''
 A static method is bound to the class and not the 
 object of the class. Therefore, we can call it 
 using the class name.
 '''
+
+
 class Person:
     @staticmethod
     def sample(x):
         print('Inside static method', x)
 
+
 # call static method
 Person.sample(10)
 
-#Another Example of static method
+# Another Example of static method
+
+
 class TemperatureConverter:
     @staticmethod
     def celsius_to_fahrenheit(c):
@@ -463,16 +503,20 @@ class TemperatureConverter:
     @staticmethod
     def fahrenheit_to_celsius(f):
         return 5 * (f - 32) / 9
+
+
 print(TemperatureConverter.celsius_to_fahrenheit(30))  # 86.0
 
 # Example of Class, Instance and Static Level Methods and Attributes
+
+
 class IAJK:
     admin = "Administrator Tasks"
     university = "COMSTATS UNIVERSITY ISLAMABAD"
     library = "Books"
-    Sports = ["Cricket","Hockey","Football"]
+    Sports = ["Cricket", "Hockey", "Football"]
 
-    def __init__(self,facultyMember, noOfStudents, departmentName, courseSubjects, noOfGrounds, admissions, courseDuration,courseName , courseTeacher ) -> None:
+    def __init__(self, facultyMember, noOfStudents, departmentName, courseSubjects, noOfGrounds, admissions, courseDuration, courseName, courseTeacher) -> None:
         self.facultyMember = facultyMember
         self.noOfStudents = noOfStudents
         self.departName = departmentName
@@ -508,16 +552,33 @@ class IAJK:
         print(refreshment)
 
 
-
 fm = int(input("Please Enter Total Faculty member"))
 ns = int(input("Please Enter Number of Studentsr"))
 dp = input("Please your Department Name")
-UIIT = IAJK(fm,ns,dp,10,1,100,"6 Months","DevOPS","Ehtisham")
+UIIT = IAJK(fm, ns, dp, 10, 1, 100, "6 Months", "DevOPS", "Ehtisham")
 IAJK.uniInfo()
 UIIT.Show()
 IAJK.iajkboy()
 
-#Single inheritance
+# Python Magic Methods and Dunder Methods "Double Underscore Methods"
+# __str__ Method
+class Point:
+    def __init__(self, x: int, y: int) -> None:
+        self.x = x
+        self.y = y
+
+    def draw(self):
+        print(f'Point({self.x},{self.y})')
+
+    def __str__(self) -> str:
+        return f'Point({self.x},{self.y})'
+
+
+p: Point = Point(1, 2)
+print(p)
+
+
+# Single inheritance
 '''
 A class can reuse another class by inheriting it. When a child class 
 inherits from a parent class, the child class can access the 
@@ -527,48 +588,68 @@ Syntax
 class derived-class(base class):  
     <class-suite>  
 '''
+
+
 class father:
     pocketMoney = 1000
+
     def show(self):
         print("Parent Class Instance Method")
+
     @classmethod
     def showMoney(cls):
         print(cls.pocketMoney)
+
+
 class Son(father):
     def display(self):
         print("Child Class Instance Method")
+
 
 child = Son()
 child.show()
 child.showMoney()
 child.display()
 # --------------------------------------------------------------------------------
-class Animal:  
-    def speak(self):  
-        print("Animal Speaking") 
-class Dog(Animal):  
-    def bark(self):  
-        print("dog barking")  
-d = Dog()  
-d.bark()  
-d.speak()  
+
+
+class Animal:
+    def speak(self):
+        print("Animal Speaking")
+
+
+class Dog(Animal):
+    def bark(self):
+        print("dog barking")
+
+
+d = Dog()
+d.bark()
+d.speak()
 # ------------------------------------------------------------------------------------
-#Constructor in Single Inheritance
+# Constructor in Single Inheritance
+
+
 class father:
-    def __init__(self,money):
+    def __init__(self, money):
         self.money = money
+
     def show(self):
         print("Parent Class Instance Method")
+
+
 class Son(father):
     def display(self):
-        print("Child Class Instance Method",self.money)
+        print("Child Class Instance Method", self.money)
+
+
 s = Son(500)
 print(s.money)
 s.show()
 s.display()
 
 # ----------------------------------------------------------------------------------------
-#Constructor Overriding
+# Constructor Overriding
 '''
     If we write constructor in both classes, parent class and child class then the parent
     class constructor will not available to the child class
@@ -578,22 +659,30 @@ s.display()
     of a constructor.
 
 '''
+
+
 class Father:
     def __init__(self):
         self.money = 1000
         print("Father Class Constructor")
+
     def show(self):
         print("Parent Class Instance Method")
+
+
 class Son(Father):
     def __init__(self):
         self.money = 5000
         self.car = "BMW"
         print("Son Class Constructor", self.money, self.car)
+
     def disp(self):
         print("Parent Class Instance Method")
+
+
 S = Son()
 # -----------------------------------------------------------------------------
-#Constructor With Supper() Method
+# Constructor With Supper() Method
 '''
     If we write constructor in both classes, parent class and child class then the parent
     class constructor will not available to the child class
@@ -602,24 +691,32 @@ S = Son()
     Super() Method is used to call parent class constructor from the child class
 
 '''
+
+
 class Father:
-    def __init__(self,money):
+    def __init__(self, money):
         self.money = money
-        print("Father Class Constructor",self.money)
+        print("Father Class Constructor", self.money)
+
     def show(self):
         print("Parent Class Instance Method")
+
+
 class Son(Father):
-    def __init__(self,money,car):
+    def __init__(self, money, car):
         super().__init__(3000)
         self.money = money
         self.car = car
         print("Son Class Constructor", self.money, self.car)
+
     def disp(self):
         print("Parent Class Instance Method")
-S = Son(700000,"Mercendes")
+
+
+S = Son(700000, "Mercendes")
 
 # ----------------------------------------------------------------------------------------
-#Python Multi-Level inheritance
+# Python Multi-Level inheritance
 '''
 Multi-Level inheritance is possible in python like other object-oriented languages. 
 Multi-level inheritance is archived when a derived class inherits another derived class. 
@@ -634,26 +731,37 @@ class class2(class1):
 class class3(class2):  
     <class suite>  
 '''
+
+
 class Father:
     def __init__(self, name):
         self.name = name
         print("Father Class Constructor")
+
     def showFather(self):
         print("Father Name:", self.name)
+
+
 class Son(Father):
     def __init__(self, father_name, son_name):
         super().__init__(father_name)
         self.son_name = son_name
         print("Son Class Constructor")
+
     def showSon(self):
         print("Son Name:", self.son_name)
+
+
 class GrandSon(Son):
     def __init__(self, father_name, son_name, grandson_name):
         super().__init__(father_name, son_name)
         self.grandson_name = grandson_name
         print("GrandSon Class Constructor")
+
     def showGrandSon(self):
         print("GrandSon Name:", self.grandson_name)
+
+
 father_name = "Jamshed"
 son_name = "Junaid"
 grandson_name = "Saifullah"
@@ -663,25 +771,34 @@ g.showSon()
 g.showGrandSon()
 g.showFather()
 # -----------------------------------------------------------------------
-#Hierarchical Inheritance
+# Hierarchical Inheritance
 # Base class
+
+
 class Animal:
     def __init__(self, name):
         self.name = name
 # Derived class 1
+
+
 class Dog(Animal):
     def speak(self):
         return f"{self.name} says Woof!"
 
 # Derived class 2
+
+
 class Cat(Animal):
     def speak(self):
         return f"{self.name} says Meow!"
 
 # Derived class 3
+
+
 class Cow(Animal):
     def speak(self):
         return f"{self.name} says Moo!"
+
 
 # Create instances of the derived classes
 dog = Dog("Buddy")
@@ -693,7 +810,7 @@ print(dog.speak())  # Output: Buddy says Woof!
 print(cat.speak())  # Output: Whiskers says Meow!
 print(cow.speak())  # Output: Bessie says Moo!
 
-#Python Multiple inheritance
+# Python Multiple inheritance
 '''
 Syntax
 class Base1:  
@@ -711,6 +828,8 @@ class Derived(Base1, Base2, ...... BaseN):
     <class-suite>  
 '''
 # Base class 1
+
+
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -719,6 +838,8 @@ class Animal:
         pass
 
 # Base class 2
+
+
 class Bird:
     def __init__(self, name):
         self.name = name
@@ -727,12 +848,15 @@ class Bird:
         pass
 
 # Derived class inheriting from both Animal and Bird
+
+
 class Parrot(Animal, Bird):
     def speak(self):
         return f"{self.name} says Hello!"
-    
+
     def chirp(self):
         return f"{self.name} chirps loudly!"
+
 
 # Create an instance of the derived class Parrot
 parrot = Parrot("Polly")
@@ -742,22 +866,24 @@ print(parrot.speak())  # Output: Polly says Hello!
 print(parrot.chirp())  # Output: Polly chirps loudly!
 
 # --------------------------------------------------------------
-class Calculation1:  
-    def Summation(self,a,b):  
+
+
+class Calculation1:
+    def Summation(self, a, b):
         return a+b
-class Calculation2:  
-    def Multiplication(self,a,b):  
+
+
+class Calculation2:
+    def Multiplication(self, a, b):
         return a*b
-class Derived(Calculation1,Calculation2):  
-    def Divide(self,a,b):  
+
+
+class Derived(Calculation1, Calculation2):
+    def Divide(self, a, b):
         return a/b
-d = Derived()  
-print(d.Summation(10,20))  
-print(d.Multiplication(10,20))  
-print(d.Divide(10,20))  
 
 
-
-
-
-
+d = Derived()
+print(d.Summation(10, 20))
+print(d.Multiplication(10, 20))
+print(d.Divide(10, 20))
