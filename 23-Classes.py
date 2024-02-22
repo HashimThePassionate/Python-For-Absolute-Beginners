@@ -563,6 +563,8 @@ IAJK.iajkboy()
 # Python Magic Methods and Dunder Methods "Double Underscore Methods"
 # python 3 magic method
 # __str__ Method
+
+
 class Point:
     def __init__(self, x: int, y: int) -> None:
         self.x = x
@@ -573,21 +575,26 @@ class Point:
 
     def __str__(self) -> str:
         return f'Point({self.x},{self.y})'
-    
-    def __eq__(self,other) -> bool:
-        return self.x == other.x  and self.y == other.y
-    def __gt__(self,other) -> bool:
-        return self.x > other.x  and self.y > other.y
-        
+
+    def __eq__(self, other) -> bool:
+        return self.x == other.x and self.y == other.y
+
+    def __gt__(self, other) -> bool:
+        return self.x > other.x and self.y > other.y
+
+    def __add__(self, other) -> any:
+        return Point(self.x + other.x, self.y + other.y)
 
 
 p1: Point = Point(1, 2)
 p2: Point = Point(1, 2)
 p3: Point = Point(10, 20)
 p4: Point = Point(1, 2)
+combine = p1 + p2
 print(p)
 print(p1 == p2)
-print(p3 >  p4)
+print(p3 > p4)
+print(combine)
 
 
 # Single inheritance
