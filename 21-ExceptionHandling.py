@@ -242,4 +242,19 @@ finally:
 Output
 Atepting to divide by zero
 This is code of finally clause
+
+# Custom Exception in python using Custom Class
+class InvalidAgeError(Exception):
+    pass
+
+
+no: int = 18
+try:
+    input_user: int = int(input('Please Enter Your Age!'))
+    if input_user < no:
+        raise InvalidAgeError
+    else:
+        print('You Are Eligible For Vote')
+except InvalidAgeError:
+    print('Exception occurred : You are not Eligible for Vote ')
 '''
