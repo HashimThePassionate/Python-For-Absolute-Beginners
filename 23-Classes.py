@@ -210,6 +210,63 @@ s.update(1, "Hamza", 20)
 s.show()
 
 
+# Type Checking in Constructor
+from typing import Union
+class Person(object):
+    def __init__(self, name: str, age: int, salary: Union[int, float]) -> None:
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+        if not isinstance(age, int):
+            raise TypeError("Age must be an integer")
+        if not isinstance(salary, (int, float)):
+            raise TypeError("Salary must be either an int or a float")
+
+        self.name = name
+        self.age = age
+        self.salary = salary
+    def __str__(self) -> str:
+        return f'''
+        Person Name is {self.name}
+        person Age is {self.age}
+        Person Salary is {self.salary}
+        '''
+
+# Example usage:
+try:
+    person1 = Person("John", 25, 50000)
+    print(person1)
+    print('\n-----------------------------------------------')
+except TypeError as e:
+    print(e)
+
+try:
+    person2 = Person("Alice", "30", 60000)  # Raises TypeError
+    print(person2)
+    print('\n-----------------------------------------------')
+except TypeError as e:
+    print(e)
+try:
+    person3 = Person("Alice", 25, 60000.2345) # Raises TypeError
+    print(person3)
+    print('\n-----------------------------------------------')
+except TypeError as e:
+    print(e)
+
+try:
+    person4 = Person("Bob", 35, "70000")  # Raises TypeError
+    print(person4)
+    print('\n-----------------------------------------------')
+except TypeError as e:
+    print(e)
+
+try:
+    person5 = Person(1, "35", "70000")  # Raises TypeError
+    print(person5)
+    print('\n-----------------------------------------------')
+except TypeError as e:
+    print(e)
+
+# Tiger Class
 class Tiger:
     # def __init(self) -> None:
     #     ...
