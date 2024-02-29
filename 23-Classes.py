@@ -532,6 +532,44 @@ Car.num_wheels = 3
 print(car1.num_wheels)  # Outputs: 3
 print(car2.num_wheels)  # Outputs: 3
 
+
+# Quiz Exercise Answer
+class Product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def get_total_price(self):
+        return self.price * self.quantity
+
+
+class Receipt:
+    def __init__(self, name, date, items):
+        self.name = name
+        self.date = date
+        self.items = items
+
+    def get_subtotal(self):
+        return sum(item.get_total_price() for item in self.items)
+
+    def get_total_with_tax(self, tax_rate):
+        subtotal = self.get_subtotal()
+        tax = subtotal * tax_rate
+        return subtotal + tax
+
+
+print('SHOP NO 1 2 ROYAL PLAZA')
+print('QUETTA CHAMAN')
+# Example usage
+product1 = Product("Milk", 2.5, 1)
+product2 = Product("Bread", 3.0, 2)
+
+receipt = Receipt("My Local Store", "2024-02-29", [product1, product2])
+
+print(f"Subtotal: ${receipt.get_subtotal():.2f}")
+print(f"Total with 5% tax: ${receipt.get_total_with_tax(0.05):.2f}")
+
 # Static Method
 '''
 A static method is bound to the class and not the 
