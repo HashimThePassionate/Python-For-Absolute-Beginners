@@ -27,3 +27,21 @@ Shallow copy offers several advantages:
 ### Important Note
 
 While shallow copying has its advantages, it comes with a caveat: changes to nested objects in the original or copied structure can affect the other. This can lead to unintended side effects if not managed carefully. If you need a complete and independent copy, consider using deep copy, which creates entirely new instances for all nested objects.
+
+
+## Example Usage
+Here's an example demonstrating the use of deep copy in Python:
+
+```python
+import copy
+
+original = [['Hashim', 'Tahir', 24], [1, 2, 3], ['x', True, 97.5]]
+
+# Create a deep copy of the original list
+shallow_copy = copy.copy(original)
+
+# Modify the deep copy
+shallow_copy[0][0] = 'Ali'
+
+print("Original:", original)  # Output: [['Ali', 'Tahir', 24], [1, 2, 3], ['x', True, '97.5']]
+print("Shallow Copy:", shallow_copy) # Output: [['Ali', 'Tahir', 24], [1, 2, 3], ['x', True, '97.5']]
