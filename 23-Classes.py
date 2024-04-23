@@ -1078,3 +1078,41 @@ d = Derived()
 print(d.Summation(10, 20))
 print(d.Multiplication(10, 20))
 print(d.Divide(10, 20))
+
+# Unpacking something using classes
+class DynamicArgsDemo:
+    def __init__(self, **kwargs):
+        self.data = kwargs
+
+    def process_data(self):
+        # Simulating a dictionary with different key-value pairs
+        # In a real scenario, this could be user input, API response, etc.
+        sample_data = {
+            'name': 'John',
+            'age': 30,
+            'location': 'New York',
+            'interests': ['Python', 'Data Science', 'AI']
+        }
+
+        # Updating self.data with sample_data
+        self.data.update(sample_data)
+
+        # Unpacking self.data dynamically
+        # Here, we're interested in 'name', 'age', and 'location'
+        # We'll use these to "process" the data (printing in this case)
+        # 'interests' is omitted from this example
+        try:
+            name = self.data['name']
+            age = self.data['age']
+            location = self.data['location']
+
+            # Processing the data (printing in this example)
+            print(f"Name: {name}")
+            print(f"Age: {age}")
+            print(f"Location: {location}")
+        except KeyError as e:
+            print(f"KeyError: {e} not found in data")
+
+# Creating an instance and demonstrating dynamic unpacking
+demo = DynamicArgsDemo()
+demo.process_data()
