@@ -1,5 +1,7 @@
-from typing import Callable , Tuple, Dict
-#Python functions
+import re
+from typing import Union
+from typing import Callable, Tuple, Dict
+# Python functions
 '''
 Think of a function as a little named container for a group 
 of your code!
@@ -59,19 +61,22 @@ of formal parameters along with their datatypes. The statements that form the bo
 the function start at the next line,and  be indented.
 
 '''
-#Basic Example of a User-Defined Function
-def square( num: int ) ->int :  
+# Basic Example of a User-Defined Function
+
+
+def square(num: int) -> int:
     """ 
     This function computes the square of the number. 
-    """  
-    return num**2 
-     
-print(square.__doc__) 
+    """
+    return num**2
+
+
+print(square.__doc__)
 '''.__doc__(This line prints out the docstring associated with the square function.
  It accesses the docstring using the __doc__ attribute of the function.)'''
 
-object_ = square(9)  
-print( "The square of the number is: ", object_ ) 
+object_ = square(9)
+print("The square of the number is: ", object_)
 
 '''
 Output
@@ -79,30 +84,39 @@ This function computes the square of the number.
 The square of the number is:  81
 '''
 
-#Example 1
-def demo_func(param:int) -> int:
+# Example 1
+
+
+def demo_func(param: int) -> int:
     """This is just a demo
     function.
     """
     calc = param + 4
     return calc
 
+
 demo_func(6)
-print(demo_func(6)) # returns 10
+print(demo_func(6))  # returns 10
 
-#Example 2
-# Defining a function  
-def a_function( string ):  
-    "This prints the value of length of string"  
-    return len(string)  
-print( "Length of the string Functions is: ", a_function("Muhammad Hashim") )
-print( "Length of the string Functions is: ", a_function( "Functions" ) )  
-print( "Length of the string Python is: ", a_function( "Python" ) )
+# Example 2
+# Defining a function
 
-#Example 3
-#Note: I will be defining a function to demo :)
-#The basics
-def number_play(x:int):
+
+def a_function(string):
+    "This prints the value of length of string"
+    return len(string)
+
+
+print("Length of the string Functions is: ", a_function("Muhammad Hashim"))
+print("Length of the string Functions is: ", a_function("Functions"))
+print("Length of the string Python is: ", a_function("Python"))
+
+# Example 3
+# Note: I will be defining a function to demo :)
+# The basics
+
+
+def number_play(x: int):
     if x < 0:
         x = 0
         print('Negative changed to zero')
@@ -112,6 +126,7 @@ def number_play(x:int):
         print('Single')
     else:
         print('More')
+
 
 number_play(-1)
 number_play(0)
@@ -124,19 +139,22 @@ Zero
 Single
 More
 '''
-  
-#Pass by Reference Vs Value
+
+# Pass by Reference Vs Value
 '''
 In the Python programming language, all arguments are supplied by reference.
 It implies that if we modify the value of an argument within a function, 
 the change is also reflected in the calling function. For instance,
 '''
-# defining the function  
+# defining the function
+
+
 def square(my_list):
     """This function will find the square of items in the list"""
     for i in range(len(my_list)):
         my_list[i] = my_list[i] ** 2
     return my_list
+
 
 # calling the defined function
 list_ = [1, 2, 4, 6, 8, 10]
@@ -144,7 +162,7 @@ print(f'Before: {list_}')
 result = square(list_)
 print(f"After: {list_}")
 
-#Function Arguments
+# Function Arguments
 '''
 The following are the types of arguments that we can use to 
 call a function
@@ -153,27 +171,30 @@ call a function
 3.  Required arguments
 4.  Variable-length arguments
 '''
-#Default Arguments
+# Default Arguments
 '''
 A default argument is a kind of parameter that takes input as a default 
 value if no value is supplied to the argument when the function is 
 called. Default arguments are demonstrated in the following instance.
 '''
-# Python code to demonstrate the use of default arguments  
-# defining a function  
-def function( num1 = 40, num2 = 40 ):  
-    print("num1 is: ", num1)  
-    print("num2 is: ", num2)  
-    
-# Calling the function without argument  
-print( "Passing without argument" )  
+# Python code to demonstrate the use of default arguments
+# defining a function
+
+
+def function(num1=40, num2=40):
+    print("num1 is: ", num1)
+    print("num2 is: ", num2)
+
+
+# Calling the function without argument
+print("Passing without argument")
 function()
-# Calling the function and passing only one argument  
-print( "Passing one argument" )  
-function(10)  
-# Now giving two arguments to the function  
-print( "Passing two arguments" )  
-function(10,30)  
+# Calling the function and passing only one argument
+print("Passing one argument")
+function(10)
+# Now giving two arguments to the function
+print("Passing two arguments")
+function(10, 30)
 
 '''
 Passing without argument
@@ -187,7 +208,7 @@ num1 is:  10
 num2 is:  30
 '''
 
-#Keyword Arguments
+# Keyword Arguments
 '''
 The arguments in a function called are connected to keyword arguments. 
 If we provide keyword arguments while calling a function, the user uses 
@@ -198,20 +219,23 @@ the values with its parameters, we can omit some arguments or
 arrange them out of order. The function() method can also be 
 called with keywords in the following manner:
 '''
-# Python code to demonstrate the use of keyword arguments  
-  
-# Defining a function  
-def function( num1:int, num2: int ):  
-    print("num1 is: ", num1)  
-    print("num2 is: ", num2)  
-  
-# Calling function and passing arguments without using keyword  
-print( "Without using keyword" )  
-function( 50, 30)     
-      
-# Calling function and passing arguments using keyword  
-print( "With using keyword" )  
-function( num2 = 50, num1 = 30)
+# Python code to demonstrate the use of keyword arguments
+
+# Defining a function
+
+
+def function(num1: int, num2: int):
+    print("num1 is: ", num1)
+    print("num2 is: ", num2)
+
+
+# Calling function and passing arguments without using keyword
+print("Without using keyword")
+function(50, 30)
+
+# Calling function and passing arguments using keyword
+print("With using keyword")
+function(num2=50, num1=30)
 
 '''
 Without using keyword
@@ -222,7 +246,7 @@ num1 is:  30
 num2 is:  50
 '''
 
-#Required Arguments
+# Required Arguments
 '''
 The arguments given to a function while calling in a pre-defined 
 positional sequence are required arguments. The count of required 
@@ -232,22 +256,25 @@ provided while defining the function.
 We must send two arguments to the function function() in the correct 
 order,or it will return a syntax error, as seen below.
 '''
-# Python code to demonstrate the use of default arguments  
-  
-# Defining a function  
-def function( num1: int , num2: int ):  
-    print("num1 is: ", num1)  
-    print("num2 is: ", num2)  
+# Python code to demonstrate the use of default arguments
 
-print( "Passing out of order arguments" )  
-function( 30, 20 )     
-  
-# Calling function and passing only one argument  
-print( "Passing only one argument" )  
-try:  
-    function( 30 )  
-except:  
-    print("Function needs two positional arguments") 
+# Defining a function
+
+
+def function(num1: int, num2: int):
+    print("num1 is: ", num1)
+    print("num2 is: ", num2)
+
+
+print("Passing out of order arguments")
+function(30, 20)
+
+# Calling function and passing only one argument
+print("Passing only one argument")
+try:
+    function(30)
+except:
+    print("Function needs two positional arguments")
 
 '''
 Output
@@ -258,7 +285,7 @@ Passing only one argument
 Function needs two positional arguments
 '''
 
-#Variable-Length Arguments
+# Variable-Length Arguments
 '''
 We can use special characters in Python functions to pass as many 
 arguments as we want in a function. There are two types of characters
@@ -268,32 +295,40 @@ that we can use for this purpose:
 2.  **kwargs - These are Keyword Arguments.
 
 '''
-# Python code to demonstrate the use of variable-length arguments     
-# Defining a function  
-def function( *args_list ):  
-    ans = []  
-    for l in args_list:  
-        ans.append( l.upper() )  
-    return ans  
-# Passing args arguments  
-object = function('Python', 'Functions', 'tutorial')  
-print( object )  
-  
-# defining a function  
-def function( **kargs_list ):  
-    ans = []  
-    for key, value in kargs_list.items():  
-        ans.append([key, value])  
-    return ans  
-# Passing kwargs arguments  
-object = function(First = "Python", Second = "Functions", Third = "Tutorial")  
-print(object)  
+# Python code to demonstrate the use of variable-length arguments
+# Defining a function
+
+
+def function(*args_list):
+    ans = []
+    for l in args_list:
+        ans.append(l.upper())
+    return ans
+
+
+# Passing args arguments
+object = function('Python', 'Functions', 'tutorial')
+print(object)
+
+# defining a function
+
+
+def function(**kargs_list):
+    ans = []
+    for key, value in kargs_list.items():
+        ans.append([key, value])
+    return ans
+
+
+# Passing kwargs arguments
+object = function(First="Python", Second="Functions", Third="Tutorial")
+print(object)
 '''
 Output
 ['PYTHON', 'FUNCTIONS', 'TUTORIAL']
 [['First', 'Python'], ['Second', 'Functions'], ['Third', 'Tutorial']]
 '''
-#return Statement
+# return Statement
 '''
 We write a return statement in a function to leave a function and give 
 the calculated value when a defined function is called.
@@ -306,23 +341,29 @@ If we do not write a return statement, then None object is returned by a
 defined function.
 Here is an example of a return statement in Python functions.
 '''
-# Python code to demonstrate the use of return statements  
-  
-# Defining a function with return statement  
-def square( num:int ) -> int:  
-    return num**2  
-   
-# Calling function and passing arguments.  
-print( "With return statement" )  
-print( square( 39 ) )  
-  
-# Defining a function without return statement   
-def square( num:int ) -> int:  
-     num**2   
-  
-# Calling function and passing arguments.  
-print( "Without return statement" )  
-print( square( 39 ) )  
+# Python code to demonstrate the use of return statements
+
+# Defining a function with return statement
+
+
+def square(num: int) -> int:
+    return num**2
+
+
+# Calling function and passing arguments.
+print("With return statement")
+print(square(39))
+
+# Defining a function without return statement
+
+
+def square(num: int) -> int:
+    num**2
+
+
+# Calling function and passing arguments.
+print("Without return statement")
+print(square(39))
 
 '''
 Output
@@ -331,16 +372,19 @@ With return statement
 Without return statement
 None
 '''
-#Printing Docstring using __doc__ method
+# Printing Docstring using __doc__ method
+
+
 def my_function():
     """Demonstrates triple double quotes
     docstrings and does nothing really."""
-   
+
     return None
-  
+
+
 print("Using __doc__:")
 print(my_function.__doc__)
-  
+
 print("Using help:")
 help(my_function)
 
@@ -374,20 +418,99 @@ For an API, use positional-only to prevent breaking API changes if
 the parameter’s name is modified in the future.
 '''
 
+# Namespace in python
+'''
+
+In Python, a namespace is a container that holds a set of identifiers (like variable names, function names, class names, etc.) and their corresponding objects (values, functions, classes, etc.). It provides a context for these identifiers, allowing Python to differentiate between them even if they have the same name but exist in different namespaces.
+
+Here's a more detailed explanation of what a namespace is and how it works in Python:
+Purpose of Namespaces:
+Namespaces help avoid naming conflicts by keeping identifiers in different contexts separate. This is particularly useful in large projects where multiple developers might use the same variable or function names.
+
+Types of Namespaces:
+Global Namespace: This is the namespace associated with a module or script. It contains all globally defined identifiers.
+
+Local Namespace: This is the namespace associated with a function or method. It contains identifiers defined within the function or method scope.
+
+Built-in Namespace: This namespace includes Python's built-in functions and exceptions, like print, len, ValueError, etc.
+
+Scope:
+The concept of scope is closely related to namespaces. Scope defines where a namespace is accessible. The "global" scope is accessible throughout the module, while the "local" scope is typically accessible within a specific function or block.
+Python follows the LEGB rule for scope resolution: Local, Enclosing, Global, Built-in. This determines the order in which Python looks up namespaces to resolve an identifier.
+
+Namespace Operations:
+You can view the contents of a namespace with functions like globals() for the global namespace and locals() for the local namespace.
+Assignments and deletions of identifiers affect the current namespace. For example, x = 10 creates an identifier x in the current namespace.
+'''
+
+# Builtin Namespace:
+# Using built-in functions
+print("Hello, world!")  # 'print' is a built-in function
+print(len([1, 2, 3]))   # 'len' is also built-in
+# Using built-in types
+my_list = list(range(5))  # 'list' and 'range' are built-in
+# Handling built-in exceptions
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+# To check builtin namespace
+print(dir(__builtins__))
+
+# Global Namespace:
+'''
+In Python, the global namespace is a context that holds all the variables, functions, classes, and other objects defined at the top level of a module or script. It serves as a global scope, meaning that items defined within it are accessible throughout the module or script and from within any functions or classes defined in that module or script.
+'''
+x = 50  # Global variable
+
+def mixed_example():
+    x = 10  # Local variable
+    print(f'Show the current local Namespace {dir()}')
+    print("Local x:", x)  # Refers to the local variable within this function
+
+    global y  # Declares 'y' as a global variable
+    y = 30  # This modifies the global namespace
+
+# Call the function to demonstrate the interaction of namespaces
+mixed_example()
+print(f'Show the Global Namespace {dir()}')
+print("Global x:", x)  # Still refers to the global 'x' (Output: 50)
+print("Global y:", y)  # Refers to the global 'y' defined in the function (Output: 30)
+
+
+# Local Namespace:
+def local_example():
+    local_variable = 10  # This is in the local namespace of the function
+    print("Local variable:", local_variable)
+
+# Call the function to see the local variable in action
+local_example()
+
+# Trying to access a local variable outside its scope results in an error
+try:
+    print(local_variable)  # This raises a NameError
+except NameError:
+    print("Local variable is not accessible outside its function")
+
+
+
 # Higher-order Functions
 
 def apply(func: Callable[[int], int], value: int) -> int:
     return func(value)
 
+
 result = apply(lambda x: x ** 2, 5)
 print(result)
-     
-# Closures
+
+# Closures`
+
 
 def outer_func(x: int) -> Callable[[int], int]:
     def inner_func(y: int) -> int:
         return x + y
     return inner_func
+
 
 closure = outer_func(10)
 print(closure(5))  # Outputs: 15
@@ -403,10 +526,11 @@ def factorial(x: int) -> int:
     else:
         return (x * factorial(x-1))
 
+
 num = 5
 print("The factorial of", num, "is", factorial(num))
-     
-#Python Lambda Functions
+
+# Python Lambda Functions
 '''
 Lambda Functions in Python are anonymous functions, 
 implying they don't have a name. The def keyword is needed to create 
@@ -416,124 +540,151 @@ the "lambda" keyword in Python to define an unnamed function.
 Syntax of Python Lambda Function
 lambda arguments: expression 
 '''
-#Example1 
-# Code to demonstrate how we can use a lambda function  
-add = lambda num: num + 4  
-print( add(6) )  
+# Example1
+# Code to demonstrate how we can use a lambda function
+def add(num): return num + 4
+
+
+print(add(6))
 '''
 Output
 10
 '''
-#Example2
-def reciprocal( num ):  
-    return 1 / num  
-lambda_reciprocal = lambda num: 1 / num  
-print( "Lambda keyword: ", lambda_reciprocal(6) ) 
-print( "Def keyword: ", reciprocal(6) )  
+# Example2
+
+
+def reciprocal(num):
+    return 1 / num
+
+
+def lambda_reciprocal(num): return 1 / num
+
+
+print("Lambda keyword: ", lambda_reciprocal(6))
+print("Def keyword: ", reciprocal(6))
 '''
 Output
 Def keyword:  0.16666666666666666
 Lambda keyword:  0.16666666666666666
 '''
-#Example3 Lambda Function with filter()
-# Code to filter odd numbers from a given list  
-list_ = [34, 12, 64, 55, 75, 13, 63]  
-odd_list = list(filter( lambda num: (num % 2 != 0) , list_ ))  
-print(odd_list)  
+# Example3 Lambda Function with filter()
+# Code to filter odd numbers from a given list
+list_ = [34, 12, 64, 55, 75, 13, 63]
+odd_list = list(filter(lambda num: (num % 2 != 0), list_))
+print(odd_list)
 '''
 Output
 [55, 75, 13, 63]
 '''
-#Example4 Lambda Function with map()
-#Code to calculate the square of each number of a list using the map() 
-# function    
-numbers_list = [2, 4, 5, 1, 3, 7, 8, 9, 10]    
-squared_list = list(map( lambda num: num ** 2 , numbers_list ))    
-print( squared_list ) 
+# Example4 Lambda Function with map()
+# Code to calculate the square of each number of a list using the map()
+# function
+numbers_list = [2, 4, 5, 1, 3, 7, 8, 9, 10]
+squared_list = list(map(lambda num: num ** 2, numbers_list))
+print(squared_list)
 '''
 Output
 [4, 16, 25, 1, 9, 49, 64, 81, 100]
 '''
 
-#Example5 Lambda Function with List Comprehension and For Loop
-#Code to calculate square of each number of list using list comprehension  
-squares = [lambda num = num: num ** 2 for num in range(0, 11)]     
-for square in squares:  
-    print( square(), end = " ")  
+# Example5 Lambda Function with List Comprehension and For Loop
+# Code to calculate square of each number of list using list comprehension
+squares = [lambda num=num: num ** 2 for num in range(0, 11)]
+for square in squares:
+    print(square(), end=" ")
 '''
 Output
 0 1 4 9 16 25 36 49 64 81 100 
-'''    
+'''
 
-#Example 6 Lambda Function with if-else
-Minimum = lambda x, y : x if (x < y) else y     
-print(Minimum( 35, 74 )) 
+# Example 6 Lambda Function with if-else
+
+
+def Minimum(x, y): return x if (x < y) else y
+
+
+print(Minimum(35, 74))
 '''
 Output
 35
 '''
 
-#Example 7 Printing number tables with functions
+# Example 7 Printing number tables with functions
 
-def demo_func(param:int):
-  res: int = demo_func(10)
+
+def demo_func(param: int):
+    res: int = demo_func(10)
+
+
 print(f"The result is {res}")
 print(param)
-l= [1,2,3,4,5,6,7,8,9,10]
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-def TableFun(tableNo : int, limit : int ) -> None:
-    for i in range(1,len(l)):
+
+def TableFun(tableNo: int, limit: int) -> None:
+    for i in range(1, len(l)):
         print(f"{tableNo} * {i} = {tableNo*i}")
 
-    TableFun(5,11)
-    print(TableFun(5,11))
-    TableFun(4,11)
+    TableFun(5, 11)
+    print(TableFun(5, 11))
+    TableFun(4, 11)
     print()
-    TableFun(2,11)
+    TableFun(2, 11)
     print()
-    TableFun(11,11)
+    TableFun(11, 11)
 
-#Example 8 Functions with Exceptions
-    
+# Example 8 Functions with Exceptions
+
+
     # Raising an Exception
-x : int = 10
+x: int = 10
 if x > 5:
     raise Exception(f'x should not exceed 5. The value of x was: {x}')
 
-num = [3, 4, 5, 7]  
-if len(num) > 3:  
-    raise Exception( f"Length of the given list must be less than or equal to 3 but is {len(num)}" ) 
+num = [3, 4, 5, 7]
+if len(num) > 3:
+    raise Exception(
+        f"Length of the given list must be less than or equal to 3 but is {len(num)}")
 
 # Assertion Exception
-def square_root( Number : int ) -> int:  
-    assert ( Number < 0), "Give a positive number"
-    return Number**(1/2)  
-  
-#Calling function and passing the values  
-no1 : int = square_root(-36)
-no2 : int = square_root(36)
-print(no1)  
-#  print(no2) 
 
-#Example 9 calling functions by arguments,values and errors in functions
+
+def square_root(Number: int) -> int:
+    assert (Number < 0), "Give a positive number"
+    return Number**(1/2)
+
+
+# Calling function and passing the values
+no1: int = square_root(-36)
+no2: int = square_root(36)
+print(no1)
+#  print(no2)
+
+# Example 9 calling functions by arguments,values and errors in functions
 
 # Call by Value
-a : int = 5
-def abc(num : int ) -> None:
+a: int = 5
+
+
+def abc(num: int) -> None:
     num = 6
     print(id(num))
     print(num)
+
 
 print(id(a))
 abc(a)
 print(a)
 
 # Call by Reference
-l : list = [1,2,3,4,5]
-def myList(newList : list[int]) -> None:
+l: list = [1, 2, 3, 4, 5]
+
+
+def myList(newList: list[int]) -> None:
     print(newList)
     print(id(newList))
     newList.append(6)
+
 
 print(id(l))
 myList(l)
@@ -543,16 +694,16 @@ print(l)
 a = int(input("Please Enter a Number\t"))
 b = int(input("Please Enter another Number\t"))
 
-res : int = (a/b)
+res: int = (a/b)
 print(f"Value is {res}")
 
 
-a : int = 1
-while(True):
+a: int = 1
+while (True):
     print(a)
     a += a
 
-l: list[int] = [1,2,3]
+l: list[int] = [1, 2, 3]
 try:
     # a = int(input("Please Enter a Number\t"))
     # b = int(input("Please Enter another Number\t"))
@@ -566,36 +717,44 @@ except NameError:
     print('Variable name is not valid')
     # pass
 
-#Example 9 Arithmetic operations with Functions
-    
-    def display(a : int, b : int) -> int:
+# Example 9 Arithmetic operations with Functions
+
+    def display(a: int, b: int) -> int:
     return a + b
 
-a = display(10,20)
-print(a) 
+a = display(10, 20)
+print(a)
 
 
-def add_two_numbers(num1 : int , num2 : int)->int:
+def add_two_numbers(num1: int, num2: int) -> int:
     print(f"num1 value is {num1} and num 2 value is {num2}")
     return num1 + num2
 
-x : int = add_two_numbers(7,20)
+
+x: int = add_two_numbers(7, 20)
 print(f"The sum is {x}")
 
-a = lambda num1, num2 : num1 + num2
-sum : Callable[[int,int],int] = lambda no1, no2 : no1 + no2 
-print(sum(2,5))
-a(7,8)
 
-#Example 10 Squaring a list and shortlisting it's even and odd numbers
+def a(num1, num2): return num1 + num2
 
-square = lambda no : 2 * no + str(2)
+
+sum: Callable[[int, int], int] = lambda no1, no2: no1 + no2
+print(sum(2, 5))
+a(7, 8)
+
+# Example 10 Squaring a list and shortlisting it's even and odd numbers
+
+
+def square(no): return 2 * no + str(2)
+
+
 print(square('Name'))
-data : list[int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+data: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9,
+                   10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-d1= list(map(lambda x:x**2 , data))
-even :list[int] = list(filter(lambda x:x%2==0 ,data))
-odd :list[int] = list(filter(lambda x:x%2==1 ,data))
+d1 = list(map(lambda x: x**2, data))
+even: list[int] = list(filter(lambda x: x % 2 == 0, data))
+odd: list[int] = list(filter(lambda x: x % 2 == 1, data))
 
 
 print(data)
@@ -604,13 +763,16 @@ print(d1)
 print(even)
 print(odd)
 
-#Example 11 Generator Function
+# Example 11 Generator Function
 # Generator Function
 
-def my_range(start:int , end:int , step: int=1):
-    for i in range(start,end+1,step):
-        yield i # Generator fucntion
-a = my_range(1,10)
+
+def my_range(start: int, end: int, step: int = 1):
+    for i in range(start, end+1, step):
+        yield i  # Generator fucntion
+
+
+a = my_range(1, 10)
 print(next(a))
 print(next(a))
 print(next(a))
@@ -625,46 +787,50 @@ print(next(a))
 print(next(a))
 print("Hello World")
 
-#Example 12 Greeting Function 
+# Example 12 Greeting Function
 
 # List Items
 
-def abc(*names : Tuple[str, ...]) -> None:
+
+def abc(*names: Tuple[str, ...]) -> None:
     """
     This function greets all persons in the names tuple.
-    """  
+    """
     for name in names:
         print("Hello", name)
 
 
-a = abc('Muhammad Mowahid','Abdullah Sobadar','Ahmed NotesWala','Ishaque Londonwala','Butt Khamoshi Wala')
+a = abc('Muhammad Mowahid', 'Abdullah Sobadar', 'Ahmed NotesWala',
+        'Ishaque Londonwala', 'Butt Khamoshi Wala')
 print(abc.__doc__)
 print(a)
 
-#Dictionary Items
+# Dictionary Items
 
-def greet(**greeting: Dict[str,str]) -> None:
+
+def greet(**greeting: Dict[str, str]) -> None:
     print(f'Hey {greeting}')
+
 
 greet(a="Mowahid", b='Sobadar')
 
-#Example 11 Functions with Class Callable and Decorator Functions
+# Example 11 Functions with Class Callable and Decorator Functions
 
-def my_decorator(func: Callable[[], None])-> Callable[[], None]:
+
+def my_decorator(func: Callable[[], None]) -> Callable[[], None]:
     def wrapper():
         print("Something is happening before the function is called.")
         func()
         print("Something is happening after the function is called.")
     return wrapper
 
+
 @my_decorator
 def say_hello():
     print("Hello!")
 
-say_hello()
 
-from typing import Union
-import re
+say_hello()
 
 
 def validate_cnic_format(cnic: str) -> bool:
