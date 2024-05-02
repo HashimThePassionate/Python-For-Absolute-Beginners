@@ -602,11 +602,51 @@ operations_dict = {
     'add_ten': lambda x: x + 10,
     'square': lambda x: x ** 2
 }
-print(operations_dict )  # Output: 16
+print(operations_dict)  # Output: 16
+
+# Closure in python
+'''
+A closure in Python is a function that retains access to its enclosing scope, even after the scope has exited. Closures allow inner functions to capture variables from their enclosing context, enabling them to carry those captured variables wherever they go, even when the outer function has finished execution.
+'''
 
 
+def outer():
+    def inner():
+        x = 200  # Local variable within 'inner'
+        return x  # Return the value of 'x'
+
+    return inner()  # Call 'inner' and return its result
+
+
+print(outer())  # Output: 200
+
+# Closure Example
+
+
+def outer():
+    def inner():
+        x = 200  # Local variable within 'inner'
+        return x  # Return the value of 'x'
+
+    return inner  # Call 'inner' and return its result
+
+
+inner = outer()
+print(inner)
+print(inner())
+
+
+def outer():
+    def inner():
+        x = 200
+        return x
+    return inner()
+
+
+print(outer())
 
 # Higher-order Functions
+
 
 def apply(func: Callable[[int], int], value: int) -> int:
     return func(value)
@@ -614,18 +654,6 @@ def apply(func: Callable[[int], int], value: int) -> int:
 
 result = apply(lambda x: x ** 2, 5)
 print(result)
-
-# Closures`
-
-
-def outer_func(x: int) -> Callable[[int], int]:
-    def inner_func(y: int) -> int:
-        return x + y
-    return inner_func
-
-
-closure = outer_func(10)
-print(closure(5))  # Outputs: 15
 
 
 # Recursion
@@ -746,7 +774,6 @@ def TableFun(tableNo: int, limit: int) -> None:
     TableFun(11, 11)
 
 # Example 8 Functions with Exceptions
-
 
     # Raising an Exception
 x: int = 10
