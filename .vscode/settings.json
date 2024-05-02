@@ -1,5 +1,0 @@
-{
-    "key": "ctrl+f5",
-    "command": "python.RunPythonFileInTerminal",
-    "when": "editorLangId == 'python'"
-}
