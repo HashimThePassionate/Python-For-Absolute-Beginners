@@ -538,14 +538,71 @@ outer()
 '''
 In Python, you can create an alias for a function by assigning it to a new name. This allows you to refer to the same function using a different name, which can be useful for various reasons, including code readability, shorter syntax, or context-specific naming. When you create an alias, both the original function name and the alias refer to the same function object in memory, meaning any changes to the function affect both references.
 '''
+
+
 def original_function():
     return "Hello, world!"
+
 
 # Creating an alias for the function
 alias_function = original_function
 
 # Calling the function using the alias
 print(alias_function())  # Output: "Hello, world!"
+
+
+# Every Python Function is an object
+'''
+
+In Python, everything is an object, including functions. This concept is fundamental to understanding Python's flexibility and expressiveness. Let's explore what it means for functions to be objects, how functions behave as objects, and what capabilities this provides.
+'''
+
+# Functions as Objects
+
+
+def multiply(a, b):
+    return a * b
+
+
+multiply.description = "Multiplies two numbers."
+print(multiply.description)  # Output: "Multiplies two numbers."
+
+# Using a function's attributes to modify its behavior
+multiply.factor = 2
+
+
+def multiply_with_factor(x):
+    return multiply(x, multiply.factor)
+
+
+print(multiply_with_factor(3))  # Output: 6 (3 * 2)
+
+
+# Function that takes another function as a parameter
+def apply_twice(func, x):
+    return func(func(x))
+# Applying a function twice
+
+
+def double(x):
+    return x * 2
+
+
+print(apply_twice(double, 3))
+
+# Storing Functions in Data Structure
+# Storing functions in a list
+operations = [double, lambda x: x + 10, lambda x: x ** 2]
+# Applying each function to a number
+results = [func(5) for func in operations]
+print(results)  # Output: [10, 15, 25]
+# Storing functions in a dictionary
+operations_dict = {
+    'double': double,
+    'add_ten': lambda x: x + 10,
+    'square': lambda x: x ** 2
+}
+print(operations_dict )  # Output: 16
 
 
 
