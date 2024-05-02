@@ -463,6 +463,7 @@ In Python, the global namespace is a context that holds all the variables, funct
 '''
 x = 50  # Global variable
 
+
 def mixed_example():
     x = 10  # Local variable
     print(f'Show the current local Namespace {dir()}')
@@ -471,17 +472,20 @@ def mixed_example():
     global y  # Declares 'y' as a global variable
     y = 30  # This modifies the global namespace
 
+
 # Call the function to demonstrate the interaction of namespaces
 mixed_example()
 print(f'Show the Global Namespace {dir()}')
 print("Global x:", x)  # Still refers to the global 'x' (Output: 50)
-print("Global y:", y)  # Refers to the global 'y' defined in the function (Output: 30)
+# Refers to the global 'y' defined in the function (Output: 30)
+print("Global y:", y)
 
 
 # Local Namespace:
 def local_example():
     local_variable = 10  # This is in the local namespace of the function
     print("Local variable:", local_variable)
+
 
 # Call the function to see the local variable in action
 local_example()
@@ -491,6 +495,57 @@ try:
     print(local_variable)  # This raises a NameError
 except NameError:
     print("Local variable is not accessible outside its function")
+
+
+# Non Local Variable and LEGE Rule:
+def outer():
+    value = 10  # Enclosing scope
+
+    def inner():
+        nonlocal value  # References the variable in the enclosing scope
+        value += 5  # Modifies the variable in the enclosing scope
+
+    inner()
+    print("Value after calling inner:", value)  # Output: 15
+
+
+outer()
+
+# LEGB Rule
+'''
+The LEGB rule in Python stands for the order of namespace resolution: Local, Enclosing, Global, Built-in. It describes the order in which Python looks up variable names to determine which scope they belong to when they're used in a program.
+'''
+# Global scope
+x = 10  # Global variable
+
+
+def outer():
+    # Enclosing scope
+    x = 20  # Variable in enclosing scope
+
+    def inner():
+        # Local scope
+        x = 30
+        print("Global scope (x):", x)      # Global variable
+
+    inner()  # Calling the nested function
+
+
+# Call the outer function, which calls the inner function
+outer()
+
+# Function as Alais
+'''
+In Python, you can create an alias for a function by assigning it to a new name. This allows you to refer to the same function using a different name, which can be useful for various reasons, including code readability, shorter syntax, or context-specific naming. When you create an alias, both the original function name and the alias refer to the same function object in memory, meaning any changes to the function affect both references.
+'''
+def original_function():
+    return "Hello, world!"
+
+# Creating an alias for the function
+alias_function = original_function
+
+# Calling the function using the alias
+print(alias_function())  # Output: "Hello, world!"
 
 
 
