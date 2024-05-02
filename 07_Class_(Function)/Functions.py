@@ -645,18 +645,30 @@ def outer():
 
 print(outer())
 
-# Higher-order Functions
+
+# Decorator
+'''
+a decorator is a design pattern that allows you to modify or extend the behavior of functions or methods without changing their source code
+'''
 
 
-def apply(func: Callable[[int], int], value: int) -> int:
-    return func(value)
+def upper(func):
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs).upper()
+    return wrapper
 
 
-result = apply(lambda x: x ** 2, 5)
-print(result)
+@upper
+def welcome(tuple, dict):
+    return f'Hey {tuple} {dict}'
 
+
+my_tuple = ("John", "Doe")
+my_dict = {"city": "New York", "age": 30}
+print(welcome(my_tuple, my_dict))
 
 # Recursion
+
 
 def factorial(x: int) -> int:
     """This is a recursive function
