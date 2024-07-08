@@ -1116,3 +1116,74 @@ class DynamicArgsDemo:
 # Creating an instance and demonstrating dynamic unpacking
 demo = DynamicArgsDemo()
 demo.process_data()
+
+# Inheritance
+class UIControl:
+    def __init__(self):
+        print('UIControl init')
+        self._is_enabled = False
+
+    def enable(self):
+        self._is_enabled = True
+
+    def disable(self):
+        self._is_enabled = False
+
+    def is_enabled(self):
+        return self._is_enabled
+
+    def show(self):
+        print('Showing the control', self._is_enabled)
+
+
+class TextBox(UIControl):
+    def __init__(self):
+        super().__init__()
+        print('TextBox init')
+        self._text = ''
+
+    def set_text(self, text):
+        self._text = text
+
+    def get_text(self):
+        return self._text
+
+    def clear(self):
+        self._text = '!'
+print('TextBox')
+textbox = TextBox()
+textbox.enable()
+print(textbox.is_enabled())
+textbox.show()
+textbox.disable()
+print(textbox.is_enabled())
+textbox.show()
+textbox.set_text('Hello World')
+print(textbox.get_text())
+textbox.clear()
+print(textbox.get_text())
+print('---------------------')
+class DropDownList(UIControl):
+    def __init__(self):
+        super().__init__()
+        self._items = []
+
+    def add_item(self, item):
+        self._items.append(item)
+
+    def remove_item(self, item):
+        self._items.remove(item)
+    
+    def show(self):
+        print('Showing the control', self._items)
+
+print('DropDownList')
+print('---------------')
+dropdown = DropDownList()
+print(dropdown.is_enabled())
+dropdown.add_item('item1')
+dropdown.add_item('item2')
+dropdown.add_item('item3')
+dropdown.show()
+dropdown.remove_item('item2')
+dropdown.show()
