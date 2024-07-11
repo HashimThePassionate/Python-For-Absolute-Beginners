@@ -1187,3 +1187,43 @@ dropdown.add_item('item3')
 dropdown.show()
 dropdown.remove_item('item2')
 dropdown.show()
+
+# Method Overriding
+class UIControl:
+    def __init__(self, is_enabled=True):
+        self._is_enabled = is_enabled
+
+    def __str__(self):
+        return f'is_enabled: {self._is_enabled}'
+
+    def enable(self):
+        self._is_enabled = True
+
+    def disable(self):
+        self._is_enabled = False
+    
+    def ui_control(self):
+        return f'Parent Class UIControl'
+
+class TextBox(UIControl):
+    def __init__(self, text = 'Hello World'):
+        super().__init__(True)
+        self.text = text
+
+    def __str__(self):
+        return f'{super().__str__()} \nText is "{self.text}"'  # Overrides __str__ method to return text attribute
+
+    def set_text(self, text):
+        self.text = text
+
+    def clear(self):
+        self.text = ""
+
+    def ui_control(self): 
+        return f'{super().ui_control()}   \nChild Class TextBox'
+
+
+
+textbox = TextBox()
+print(textbox)
+print(textbox.ui_control())
